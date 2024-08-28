@@ -1,0 +1,115 @@
+{
+    "preguntas": [
+      {
+        "pregunta": "¿Qué es una variable en programación?",
+        "opciones": [
+          "a) Un tipo de bucle",
+          "b) Un espacio de almacenamiento para datos",
+          "c) Una función que realiza cálculos",
+          "d) Un tipo de objeto"
+        ],
+        "respuestaCorrecta": "b",
+        "dificultad": "facil"
+      },
+      {
+        "pregunta": "¿Cuál es el resultado de 10 / 2 en JavaScript?",
+        "opciones": [
+          "a) 5",
+          "b) 2",
+          "c) 20",
+          "d) 10"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "facil"
+      },
+      {
+        "pregunta": "¿Qué método se usa para convertir un número a una cadena en JavaScript?",
+        "opciones": [
+          "a) toString()",
+          "b) parseInt()",
+          "c) toNumber()",
+          "d) convert()"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "facil"
+      },
+      {
+        "pregunta": "¿Cómo se crea una función en JavaScript?",
+        "opciones": [
+          "a) function nombre() {}",
+          "b) def nombre() {}",
+          "c) create nombre() {}",
+          "d) func nombre() {}"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "facil"
+      },
+      {
+        "pregunta": "¿Qué hace el método Array.prototype.map()?",
+        "opciones": [
+          "a) Crea un nuevo array con los resultados de aplicar una función a cada elemento del array original",
+          "b) Ordena los elementos del array",
+          "c) Elimina elementos del array",
+          "d) Filtra elementos del array"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "intermedio"
+      },
+      {
+        "pregunta": "¿Qué es un objeto en JavaScript?",
+        "opciones": [
+          "a) Una colección de pares clave-valor",
+          "b) Un tipo de variable",
+          "c) Una función",
+          "d) Un método para manejar eventos"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "intermedio"
+      },
+      {
+        "pregunta": "¿Cómo puedes manejar errores en JavaScript?",
+        "opciones": [
+          "a) Usando try-catch",
+          "b) Usando if-else",
+          "c) Usando switch-case",
+          "d) Usando for loop"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "intermedio"
+      },
+      {
+        "pregunta": "¿Qué es un promise en JavaScript?",
+        "opciones": [
+          "a) Un objeto que representa el resultado eventual de una operación asíncrona",
+          "b) Una función que se ejecuta automáticamente",
+          "c) Una estructura de datos",
+          "d) Un tipo de variable"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "dificil"
+      },
+      {
+        "pregunta": "¿Qué hace el método Array.prototype.reduce()?",
+        "opciones": [
+          "a) Ejecuta una función reductora sobre cada elemento del array, resultando en un único valor",
+          "b) Filtra los elementos del array",
+          "c) Ordena los elementos del array",
+          "d) Aplana el array"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "dificil"
+      },
+      {
+        "pregunta": "¿Qué significa el término 'closure' en JavaScript?",
+        "opciones": [
+          "a) Una función que tiene acceso a las variables de su entorno de creación",
+          "b) Un tipo de variable",
+          "c) Un método para crear objetos",
+          "d) Un tipo de error"
+        ],
+        "respuestaCorrecta": "a",
+        "dificultad": "dificil"
+      }
+    ]
+  }
+  

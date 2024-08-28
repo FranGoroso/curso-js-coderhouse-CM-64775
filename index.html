@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="main.js"></script>
-    <title>Document</title>
+    <title>Cuestionario Interactivo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Opcional -->
 </head>
 <body>
-    
+    <h1>Cuestionario Interactivo</h1>
+    <form id="formNivel">
+        <label for="nivel">Elige el nivel de dificultad:</label>
+        <select id="nivel">
+            <option value="facil">Fácil</option>
+            <option value="intermedio">Intermedio</option>
+            <option value="dificil">Difícil</option>
+        </select>
+        <button type="button" id="comenzar">Comenzar</button>
+    </form>
+
+    <div id="preguntas"></div>
+    <button id="enviar" style="display: none;">Enviar Respuestas</button>
+    <div id="resultados"></div>
+
+    <script src="main.js"></script>
 </body>
 </html>
