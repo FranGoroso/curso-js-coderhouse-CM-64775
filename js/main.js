@@ -9,7 +9,7 @@ let resultadoFinal = 0;
 //---------------------Declaracion de funciones ---------------------
 
 function darComienzo(){ //Da comienzo al programa
-    const nivelSeleccionado = document.getElementById("nivel"); //Rescato el valor que me da el select del formulario del documento html
+    const nivelSeleccionado = document.getElementById("nivel").value; //Rescato el valor que me da el select del formulario del documento html
     let preguntasSeleccionadas = []; //Creo un array vacio para poder luego colocar ahi las preguntas de la dificultad que eligio el usuario
 
     switch(nivelSeleccionado){ //Este bucle sirve para ver que tipo de preguntas eligio el usuario
@@ -23,11 +23,15 @@ function darComienzo(){ //Da comienzo al programa
             preguntasSeleccionadas = preguntasDificiles;
             break;
     }
+    
     mostrarPreguntas(preguntasSeleccionadas); //Aqui muestro las preguntas que eligio el usuario a traves de una función 
 }
 
 function mostrarPreguntas(seleccionDePreguntas){
-    const contenedorPreguntas = document.getElementById("preguntas")
+    const contenedorPreguntas = document.getElementById("preguntas"); //Creo una variable que se asocie al elemento div con el id "preguntas" 
+    seleccionDePreguntas.forEach(e => {
+        console.log(seleccionDePreguntas)
+    });
 }
 
 // hacer un bucle para recorrer las preguntas y mostralas en pantalla
