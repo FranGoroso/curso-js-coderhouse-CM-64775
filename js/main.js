@@ -482,6 +482,9 @@ let resultadoFinal = 0;
 //---------------------FIN de declaracion de variables ---------------------
 //---------------------Declaracion de funciones ---------------------
 
+document.getElementById('comenzar').addEventListener('click', darComienzo);
+
+
 function darComienzo(){ //Da comienzo al programa
     const nivelSeleccionado = document.getElementById("nivel").value; //Rescato el valor que me da el select del formulario del documento html
     let preguntasSeleccionadas = []; //Creo un array vacio para poder luego colocar ahi las preguntas de la dificultad que eligio el usuario
@@ -501,12 +504,24 @@ function darComienzo(){ //Da comienzo al programa
     mostrarPreguntas(preguntasSeleccionadas); //Aqui muestro las preguntas que eligio el usuario a traves de una función 
 }
 
-function mostrarPreguntas(seleccionDePreguntas){
-    const contenedorPreguntas = document.getElementById("preguntas"); //Creo una variable que se asocie al elemento div con el id "preguntas" 
-    seleccionDePreguntas.forEach(e => {
-        console.log(seleccionDePreguntas)
+function mostrarPreguntas(preguntasSeleccionadas) {
+    // Crea un contenedor para las preguntas
+    const plantilla_preguntas = document.createElement("div");
+    plantilla_preguntas.innerHTML = `<h3>PREGUNTAS:</h3>`;
+
+    // Itera sobre las preguntas seleccionadas y crea un elemento HTML para cada una
+    preguntasSeleccionadas.forEach((preguntaObj, indice) => {
+        const preguntaElemento = document.createElement("p");
+        preguntaElemento.textContent = `${indice + 1}. ${preguntaObj.pregunta}`;
+        plantilla_preguntas.appendChild(preguntaElemento);
     });
+
+    // Agrega el contenedor de preguntas al cuerpo del documento
+    document.body.appendChild(plantilla_preguntas);
 }
+
+
+
 
 // hacer un bucle para recorrer las preguntas y mostralas en pantalla
 // Crear una variable que me permita crear elementos dentro del documento html para colocar una plantulla literal
