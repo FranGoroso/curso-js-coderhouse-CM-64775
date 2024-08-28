@@ -504,33 +504,55 @@ function darComienzo(){ //Da comienzo al programa
     mostrarPreguntas(preguntasSeleccionadas); //Aqui muestro las preguntas que eligio el usuario a traves de una función 
 }
 
-function mostrarPreguntas(preguntasSeleccionadas) {
-    // Crea un contenedor para las preguntas
-    const plantilla_preguntas = document.createElement("div");
-    plantilla_preguntas.innerHTML = `<h3>PREGUNTAS:</h3>`;
 
-    // Itera sobre las preguntas seleccionadas y crea un elemento HTML para cada una
-    preguntasSeleccionadas.forEach((preguntaObj, indice) => {
-        const preguntaElemento = document.createElement("p");
-        preguntaElemento.textContent = `${indice + 1}. ${preguntaObj.pregunta}`;
-        plantilla_preguntas.appendChild(preguntaElemento);
+
+
+
+function mostrarPreguntas(preguntasSeleccionadas) { //Esta funcion muestra las preguntas dependiendo de la dificultad que selecciono el usuario 
+
+    // Crear un contenedor para la plantilla de preguntas
+    const plantilla_preguntas = document.createElement("div"); // Creo una constante que cree un div contenedor en el docuento HTML
+    plantilla_preguntas.innerHTML = `<h3>PREGUNTAS:</h3>`; // Aca selecciono la constante declarada arrbia y modifico el div, colocandole un h3 
+
+
+    // Iterar sobre cada pregunta y mostrarla con sus opciones
+    preguntasSeleccionadas.forEach((preguntaObj, indice) => {      //Este bucle foreach recorre las preguntas de la dificultad seleccionada 
+        // Crear un elemento en el documento HTML para la pregunta
+        const preguntaElemento = document.createElement("div"); // Se crea otro elemento div contenedor paralas preguntas en si
+        preguntaElemento.innerHTML = `<p>${indice + 1}. ${preguntaObj.pregunta}</p>`; // Aqui se crea el parráfo que contiene el texto de la pregunta en si para ser comprensible y se guarda en la varible
+
+        // Crear un contenedor para las opciones de respuesta
+        const opcionesElemento = document.createElement("div"); 
+
+        // Iterar sobre cada opción de respuesta
+        preguntaObj.opciones.forEach((opcion, indiceOpcion) => { // Este bucle recorre al igual que el bucle de preguntas pero con las opciones disponibles
+            // Crear un campo de seleccion de opcion para cada respuesta posible en el multiplechoise
+            const opcionElemento = document.createElement("div"); // Aqui se crea otro elemento div contenedor para guardar las opciones y mostrarlas
+            opcionElemento.innerHTML = ` 
+                <input type="radio" name="pregunta${indice}" value="${opcion}" id="opcion${indice}-${indiceOpcion}"> 
+                <label for="opcion${indice}-${indiceOpcion}">${opcion}</label>
+            `; // En esta porcion de codigo practicamente lo que se hace es hacer una PLANTILLA LITERAL para poder visualizar de forma clara las preguntas y las respuestas, asociando tambien los valores y los ID para que concuerde con las opciones correctas 
+            opcionesElemento.appendChild(opcionElemento); // Se agrega al contenedor, las opciones hecha en la PLANTILLA LITERAL (OpcionesElemento es el contenor y se le agrega la plantilla "opcionesElemento")
+
+
+        // Agregar las opciones al elemento de la pregunta
+        preguntaElemento.appendChild(opcionesElemento); // Aqui se asocian las preguntas a sus correspondientes multiplechoise 
+        plantilla_preguntas.appendChild(preguntaElemento); // Aqui se agregan las preguntas al contenedor que va a mostrarse en el DOM
     });
 
-    // Agrega el contenedor de preguntas al cuerpo del documento
+
+    // Agregar el contenedor de preguntas al cuerpo del documento
     document.body.appendChild(plantilla_preguntas);
 }
 
 
 
-
-// hacer un bucle para recorrer las preguntas y mostralas en pantalla
-// Crear una variable que me permita crear elementos dentro del documento html para colocar una plantulla literal
-// Luego el contenedor de la pregunta lo tengo que agregar al html como tal por cada interaccion en el bucle con las preguntas 
-//
-
 //luego hacer una funcion de validacion para las preguntas
 //Preguntas seleccionadas son un objeto y por lo tanto tengo que recorrer nuevamente para dar con la respuesta correcta que proximamente quiero que este en un archivo json
 //Tengo que tomar el valor del documento hmtl que me proporciono en la seleccion el usuario para poder validar la respuesta correcta
+
+
+
 
 //Creo otra funcion que muestre la respuesta
 //Una vez que tenga el valor de la respuesta correcta, envio un mensaje al usuario a traves de una creacion de elemento desde js en el html 
