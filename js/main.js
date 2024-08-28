@@ -533,7 +533,7 @@ function mostrarPreguntas(preguntasSeleccionadas) { //Esta funcion muestra las p
                 <label for="opcion${indice}-${indiceOpcion}">${opcion}</label>
             `; // En esta porcion de codigo practicamente lo que se hace es hacer una PLANTILLA LITERAL para poder visualizar de forma clara las preguntas y las respuestas, asociando tambien los valores y los ID para que concuerde con las opciones correctas 
             opcionesElemento.appendChild(opcionElemento); // Se agrega al contenedor, las opciones hecha en la PLANTILLA LITERAL (OpcionesElemento es el contenor y se le agrega la plantilla "opcionesElemento")
-
+        });
 
         // Agregar las opciones al elemento de la pregunta
         preguntaElemento.appendChild(opcionesElemento); // Aqui se asocian las preguntas a sus correspondientes multiplechoise 
@@ -547,6 +547,8 @@ function mostrarPreguntas(preguntasSeleccionadas) { //Esta funcion muestra las p
 
 
 
+
+
 //luego hacer una funcion de validacion para las preguntas
 //Preguntas seleccionadas son un objeto y por lo tanto tengo que recorrer nuevamente para dar con la respuesta correcta que proximamente quiero que este en un archivo json
 //Tengo que tomar el valor del documento hmtl que me proporciono en la seleccion el usuario para poder validar la respuesta correcta
@@ -555,4 +557,4 @@ function mostrarPreguntas(preguntasSeleccionadas) { //Esta funcion muestra las p
 
 
 //Creo otra funcion que muestre la respuesta
-//Una vez que tenga el valor de la respuesta correcta, envio un mensaje al usuario a traves de una creacion de elemento desde js en el html 
+//Una vez que tenga el valor de la respuesta correcta, envio un mensaje al usuario a traves de una creacion de elemento desde js en el html
