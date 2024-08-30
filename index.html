@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuestionario Interactivo</title>
+    <title>Cuestionario de JavaScript</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Cuestionario Interactivo</h1>
-    <form id="formNivel">
-        <label for="nivel">Elige el nivel de dificultad:</label>
-        <select id="nivel">
-            <option value="facil">Fácil</option>
-            <option value="intermedio">Intermedio</option>
-            <option value="dificiles">Difícil</option>
-        </select>
-        <button type="button" id="comenzar">Comenzar</button>
-    </form>
-
-    <div id="preguntas"></div>
-    <div id="resultados"></div>
+    <div id="contenedor-principal">
+        <h1>Cuestionario de JavaScript</h1>
+        <form id="formulario-cuestionario">
+            <label for="nivel">Selecciona el nivel de dificultad:</label>
+            <select id="nivel">
+                <option value="facil">Fácil</option>
+                <option value="intermedio">Intermedio</option>
+                <option value="dificil">Difícil</option>
+            </select>
+            <button type="button" id="btnComenzar">Comenzar</button>
+        </form>
+        <div id="resultado"></div>
+    </div>
     <script src="js/main.js"></script>
 </body>
 </html>
