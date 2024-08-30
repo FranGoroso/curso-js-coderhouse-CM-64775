@@ -11,27 +11,38 @@
 //PROXIMAMENTE: Crear un JSON con todas las preguntas o asociarlo a una API ya existente
 //               Despues mejorar toda la parte visual del programa y añadirle graficos de barras o algo asi
 
-document.getElementById("btnComenzar").addEventListener("clik", darComienzo); //Cuando el boton sea ejecutado por el usuario, el programa dara comienzo
+document.getElementById("btnComenzar").addEventListener("click", darComienzo); //Cuando el boton sea ejecutado por el usuario, el programa dara comienzo
+
+
 
 function darComienzo(){
     let nivelSeleccionado = document.getElementById("nivel").value //Tomo el valor seleccionado por el usuario en el DOM (Nivel de dificultad)
 
-    function seleccionNivel(nvl){ //Esta funcion selecciona la dificultad que el usuario eligio con sus respectivas preguntas
-        switch(nvl){
-            case "facil": 
+    mostrarPreguntas(nivelSeleccionado); //Aqui se muestran las preguntas a traves de la funcion, con respecto a su dificultad
+};
+
+
+
+function seleccionNivel(nvl){ //Esta funcion selecciona la dificultad que el usuario eligio con sus respectivas preguntas
+    switch(nvl){
+        case "facil": 
             nvl = "facil"
             break;
-            case "intermedio": 
+        case "intermedio": 
             nvl = "intermedio"
             break;
-            case "dificil": 
+        case "dificil": 
             nvl = "dificil"
             break;
-        };
-
-        return nvl // Retorna el valor pasado por parametros de la funcion
+        default:
+            nvl = "facil";
     };
 
-    let dificultad = seleccionNivel(nivelSeleccionado); // En esta variable se guarda el nivel de dificultad a traves de la funcion
-    mostrarPreguntas(dificultad);
+    return nvl // Retorna el valor pasado por parametros de la funcion
 };
+
+
+
+function mostrarPreguntas(nvlDificultad){
+
+}
