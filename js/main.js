@@ -1,5 +1,3 @@
-//---------------------Declaracion de variables ---------------------
-
 let preguntasFaciles = [
     {
         pregunta: "¿Qué es un array en programación?",
@@ -358,127 +356,99 @@ let preguntasDificiles = [
         respuestaCorrecta: "a"
     },
 ];
+//Hacer un programa el cual divida muy bien las funciones para hacerlo mas facil de comprender
 
-// --------------------- Declaracion de Variables para respuestas y resultados ---------------------
-let respuestasCorrectas = 0;
-let respuestasIncorrectas = 0;
-let resultadoFinal = 0;
+// DECLARAR VARIABLES 
+//1ERA FUNCION:  Dar comienzo al programa (OK)
+//2DA FUNCION: Seleccionar dificultad (OK)
+//3RA FUNCION: Mostrar las preguntas correspondientes a la dificultad seleccionada (OK)
+//4TA FUNCION: Crear contenedores en JS a traves del DOM para todo lo que necesite (OK)
+              // Crear una funcion para cada contenedor (OK)
+              // Combinar los contenedores a traves de funciones para que puedan visualizar correctamente el DOM (OK)
+//5TA FUNCION: Validar respuesta    
+//6TA FUNCION: Mostrar resultados 
 
-// --------------------- Función para iniciar el cuestionario ---------------------
-function darComienzo() {
-    respuestasCorrectas = 0; // Reiniciar el contador de respuestas correctas
-    respuestasIncorrectas = 0; // Reiniciar el contador de respuestas incorrectas
-    resultadoFinal = 0; // Reiniciar el resultado final
-    const nivelSeleccionado = document.getElementById("nivel").value; 
-    let preguntasSeleccionadas = [];
+//PROXIMAMENTE: Crear un JSON con todas las preguntas o asociarlo a una API ya existente
+//               Despues mejorar toda la parte visual del programa y añadirle graficos de barras o algo asi
 
-    switch(nivelSeleccionado) {
+document.getElementById("btnComenzar").addEventListener("click", darComienzo); //Cuando el boton sea ejecutado por el usuario, el programa dara comienzo
+
+
+
+function darComienzo(){ 
+    let nivelSeleccionado = seleccionarDificultad() //Aqui creo una variable y asigno el valor de la dificultad a traves de la funcion
+    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado) // Se filtran las preguntas dependiendo de la dificultad seleccionada por el usuario
+    mostrarPreguntas(preguntasFiltradas); //Se muestran las preguntas a traves de la funcion, con respecto a su dificultad
+};
+
+
+
+
+function seleccionarDificultad(){
+    return document.getElementById("nivel").value; //Tomo el valor seleccionado por el usuario en el DOM (Nivel de dificultad)
+};
+
+
+
+
+function filtrarPreguntasPorDificultad(nvlDif) { 
+    // Filtra las preguntas según la dificultad seleccionada por el usuario
+    switch(nvlDif) {
         case "facil":
-            preguntasSeleccionadas = preguntasFaciles;
-            break;
+            return preguntasFaciles;
         case "intermedio":
-            preguntasSeleccionadas = preguntasIntermedias;
-            break;
-        case "dificiles":
-            preguntasSeleccionadas = preguntasDificiles;
-            break;
+            return preguntasIntermedias;
+        case "dificil":
+            return preguntasDificiles;
+        default:
+            return preguntasFaciles; // Valor por defecto si no se selecciona un nivel válido
     }
-    
-    mostrarPreguntas(preguntasSeleccionadas);
-}
+};
 
-// --------------------- Función para mostrar las preguntas en el HTML ---------------------
-function mostrarPreguntas(preguntasSeleccionadas) {
-    const formulario = document.getElementById("formulario-cuestionario");
-    formulario.innerHTML = ""; // Limpiar el formulario anterior
 
-    preguntasSeleccionadas.forEach((preguntaObj, indice) => {
-        const preguntaDiv = document.createElement("div");
-        preguntaDiv.classList.add("pregunta");
 
-        const preguntaTitulo = document.createElement("h3");
-        preguntaTitulo.textContent = `${indice + 1}. ${preguntaObj.pregunta}`;
-        preguntaDiv.appendChild(preguntaTitulo);
 
-        preguntaObj.opciones.forEach(opcion => {
-            const opcionDiv = document.createElement("div");
-            opcionDiv.classList.add("opcion");
+function crearContenedorPreguntas(preguntas){
+    let contenedorPreguntas = document.createElement("div"); // Crea un div contenedor para mostrar las preguntas en el DOM
 
-            const inputOpcion = document.createElement("input");
-            inputOpcion.type = "radio";
-            inputOpcion.name = `pregunta${indice}`;
-            inputOpcion.value = opcion.trim().charAt(0); // Usamos solo la letra de la opción
-            opcionDiv.appendChild(inputOpcion);
+    preguntas.forEach((e, i) => { 
+        let textoPregunta = document.createElement("p"); // Crea un elemento en el DOM el cual se guarda en la variable
+        textoPregunta.textContent = `${i + 1}. ${e.pregunta}`; // Modifico el el contenido de texto que esta en la variable del DOM (i es el indice {el cual muestra el numero de la pregunta y e.pregunta es la pregunta como tal que al estar en el bucle, las recorre todas})
+        contenedorPreguntas.appendChild(textoPregunta); // Aqui agrego en cada iteracion, el texto de la oregunta al contenedor que va a tener las preguntas y opciones mas adelante
 
-            const labelOpcion = document.createElement("label");
-            labelOpcion.textContent = opcion;
-            opcionDiv.appendChild(labelOpcion);
-
-            preguntaDiv.appendChild(opcionDiv);
-        });
-
-        formulario.appendChild(preguntaDiv);
+        let contenedorOpciones = crearContenedorOpciones(e.opciones, i); // Creo un contenedor para las opciones (en cada iteracion e.opciones, va a recorrer todas, y la i seria como el identificador el cual se asocia a cada pregunta, esto tiene que ver con la funcion de crearContenedorOpciones)
+        contenedorPreguntas.appendChild(contenedorOpciones); // Cumplo el objetivo y agrego las opciones al contenedor principal que tambien tiene las preguntas, ahora "contenedorPreguntas" tiene todo
     });
 
-    const botonFinalizar = document.createElement("button");
-    botonFinalizar.textContent = "Finalizar";
-    botonFinalizar.id = "finalizar";
-    formulario.appendChild(botonFinalizar);
+    return contenedorPreguntas; // Retorna el contenedor de preguntas oon las opciones tambien
+};
 
-    // Asignar el evento de clic al botón "Finalizar"
-    botonFinalizar.addEventListener('click', () => {
-        validarRespuestas(preguntasSeleccionadas);
-    });
-}
 
-// --------------------- Función para validar las respuestas ---------------------
-function validarRespuestas(preguntasSeleccionadas) {
-    preguntasSeleccionadas.forEach((preguntaObj, indice) => {
-        const opciones = document.getElementsByName(`pregunta${indice}`); // Obtén todas las opciones de la pregunta actual
-        let respuestaUsuario = ""; 
 
-        // Recorre las opciones para encontrar cuál fue seleccionada por el usuario
-        opciones.forEach(opcion => {
-            if (opcion.checked) { // Verifica si la opción está seleccionada
-                respuestaUsuario = opcion.value.trim().charAt(0); // Aquí extraemos solo la letra de la opción
-            }
-        });
 
-        // Verifica si la respuesta del usuario coincide con la respuesta correcta
-        if (respuestaUsuario === preguntaObj.respuestaCorrecta) {
-            respuestasCorrectas++; // Incrementa el contador de respuestas correctas
-        } else {
-            respuestasIncorrectas++; // Incrementa el contador de respuestas incorrectas
-        }
+function crearContenedorOpciones(opciones, index){
+    let contenedorOpciones = document.createElement("div"); 
+
+    opciones.forEach(opcion => {
+        let opcionesElemento = document.createElement("label"); //Creo un label en el DOM para poder asocioarlo a cada pregunta
+        let inputOpcion = document.createElement("input"); // Esto es para seleccionar opciones
+        inputOpcion.type = "radio"; // Para que la opcion sea redonda 
+        inputOpcion.name = `pregunta${index}`; // Asociando las preguntas a las opciones para que tengan UNA SOLA OPCION
+        inputOpcion.value = opcion; // Se agrega el valor que quiero tener en la opcion seleccionada por el usuario, para validar que realmente sea correcto
+
+        opcionesElemento.appendChild(inputOpcion);
+        opcionesElemento.appendChild(document.createTextNode(opcion));
+        contenedorOpciones.appendChild(opcionesElemento);
+        contenedorOpciones.appendChild(document.createElement("br"))
     });
 
-    mostrarResultado();
-}
+    return contenedorOpciones;
+};
 
-// --------------------- Función para mostrar el resultado en pantalla ---------------------
-function mostrarResultado() {
-    const formulario = document.getElementById("formulario-cuestionario");
-    formulario.innerHTML = ""; // Limpiar el formulario
 
-    resultadoFinal = (respuestasCorrectas * 100) / (respuestasCorrectas + respuestasIncorrectas); // Calcula el porcentaje de aciertos
-    const resultadoDiv = document.getElementById("resultado");
-    resultadoDiv.innerHTML = `
-        <p>Respuestas Correctas: ${respuestasCorrectas}</p>
-        <p>Respuestas Incorrectas: ${respuestasIncorrectas}</p>
-        <p>Resultado Final: ${resultadoFinal}%</p>
-    `;
-
-    // Crear el botón para reiniciar el cuestionario
-    const botonReiniciar = document.createElement("button");
-    botonReiniciar.textContent = "Reiniciar Cuestionario";
-    botonReiniciar.id = "reiniciar";
-    formulario.appendChild(botonReiniciar);
-
-    // Asignar el evento de clic al botón "Reiniciar Cuestionario"
-    botonReiniciar.addEventListener('click', () => {
-        location.reload(); // Recarga la página para reiniciar el cuestionario
-    });
-}
-
-// --------------------- Event listener para el botón "Comenzar" ---------------------
-document.getElementById("comenzar").addEventListener('click', darComienzo);
+function mostrarPreguntas(preguntas){
+    let contenedorPreguntas = crearContenedorPreguntas(preguntas);
+    let contenedorPrincipal = document.getElementById("preguntas");
+    contenedorPrincipal.innerHTML = ""; // Esto limpia las preguntas anteriores
+    contenedorPrincipal.appendChild(contenedorPreguntas);
+};
