@@ -428,6 +428,8 @@ function crearContenedorPreguntas(preguntas){
 function crearContenedorOpciones(opciones, index){
     let contenedorOpciones = document.createElement("div"); 
 
+    let respuestaGuardada = localStorage.getItem(`respuesta_pregunta_${index}`); //Recuperando la respuesta que estaba guardada en el local storage
+
     opciones.forEach(opcion => {
         let opcionesElemento = document.createElement("label"); //Creo un label en el DOM para poder asocioarlo a cada pregunta
         let inputOpcion = document.createElement("input"); // Esto es para seleccionar opciones
@@ -435,6 +437,10 @@ function crearContenedorOpciones(opciones, index){
         inputOpcion.name = `pregunta${index}`; // Asociando las preguntas a las opciones para que tengan UNA SOLA OPCION
         inputOpcion.value = opcion; // Se agrega el valor que quiero tener en la opcion seleccionada por el usuario, para validar que realmente sea correcto
 
+        if (opcion === respuestaGuardada){
+            inputOpcion.checked = true; //Si la opcion conicide con la respuestaGuardada, se volvera a cargar la opcion con la opcion "marcada", (eso se logra con el .checked)
+        };
+        
         opcionesElemento.appendChild(inputOpcion);
         opcionesElemento.appendChild(document.createTextNode(opcion));
         contenedorOpciones.appendChild(opcionesElemento);
