@@ -367,11 +367,12 @@ document.getElementById("btnComenzar").addEventListener("click", darComienzo);
 let respuestasCorrectas = 0;
 
 function darComienzo(){ 
+    localStorage.clear(); //Aca borro todas las respuestas guardadas anteriormente
+
     let nivelSeleccionado = seleccionarDificultad();
     let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
     mostrarPreguntas(preguntasFiltradas);
-    
-}
+};
 
 document.getElementById("mostrarResultadoBtn").addEventListener("click", function() {
     let nivelSeleccionado = seleccionarDificultad();
@@ -503,5 +504,10 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
 
 // Vincular el botón a la función mostrarResultado cuando se hace clic
 document.getElementById("mostrarResultadoBtn").addEventListener("click", function() {
+    let nivelSeleccionado = seleccionarDificultad();
+    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
+    let cantidadTotalPreguntas = preguntasFiltradas.length; // Definir cantidadTotalPreguntas
+
+    respuestasCorrectas = validarRespuestas(preguntasFiltradas);
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
