@@ -356,30 +356,29 @@ let preguntasDificiles = [
         respuestaCorrecta: "a"
     },
 ];
-//Hacer un programa el cual divida muy bien las funciones para hacerlo mas facil de comprender
 
-// DECLARAR VARIABLES 
-//1ERA FUNCION:  Dar comienzo al programa (OK)
-//2DA FUNCION: Seleccionar dificultad (OK)
-//3RA FUNCION: Mostrar las preguntas correspondientes a la dificultad seleccionada (OK)
-//4TA FUNCION: Crear contenedores en JS a traves del DOM para todo lo que necesite (OK)
-              // Crear una funcion para cada contenedor (OK)
-              // Combinar los contenedores a traves de funciones para que puedan visualizar correctamente el DOM (OK)
-//5TA FUNCION: Validar respuesta    
-//6TA FUNCION: Mostrar resultados 
+//FUNCIONALIDAD NECESARIA: Guardar en el local storage las respuestas del usuario 
 
 //PROXIMAMENTE: Crear un JSON con todas las preguntas o asociarlo a una API ya existente
 //               Despues mejorar toda la parte visual del programa y añadirle graficos de barras o algo asi
 
-document.getElementById("btnComenzar").addEventListener("click", darComienzo); //Cuando el boton sea ejecutado por el usuario, el programa dara comienzo
 
-
+document.getElementById("btnComenzar").addEventListener("click", darComienzo);
+let respuestasCorrectas = 0;
 
 function darComienzo(){ 
-    let nivelSeleccionado = seleccionarDificultad() //Aqui creo una variable y asigno el valor de la dificultad a traves de la funcion
-    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado) // Se filtran las preguntas dependiendo de la dificultad seleccionada por el usuario
-    mostrarPreguntas(preguntasFiltradas); //Se muestran las preguntas a traves de la funcion, con respecto a su dificultad
-};
+    let nivelSeleccionado = seleccionarDificultad();
+    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
+    mostrarPreguntas(preguntasFiltradas);
+    
+}
+
+document.getElementById("mostrarResultadoBtn").addEventListener("click", function() {
+    let nivelSeleccionado = seleccionarDificultad();
+    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
+    respuestasCorrectas = validarRespuestas(preguntasFiltradas);
+    mostrarResultado(respuestasCorrectas, preguntasFiltradas.length);
+});
 
 
 
@@ -452,3 +451,49 @@ function mostrarPreguntas(preguntas){
     contenedorPrincipal.innerHTML = ""; // Esto limpia las preguntas anteriores
     contenedorPrincipal.appendChild(contenedorPreguntas);
 };
+
+
+
+
+function validarRespuestas(preguntas) {
+    let correctas = 0;
+
+    preguntas.forEach((pregunta, index) => {
+        let seleccionada = document.querySelector(`input[name="pregunta${index}"]:checked`);
+        
+        if (seleccionada) {
+            if (seleccionada.value[0] === pregunta.respuestaCorrecta) {
+                correctas++;
+            }
+        }
+    });
+
+    return correctas;
+}
+
+
+function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
+    let contenedorResultados = document.createElement("div");
+    let textoResultados = document.createElement("p");
+
+    let porcentaje = (respuestasCorrectas / cantidadTotalPreguntas) * 100;
+    let estado = "";
+    if(porcentaje >= 60){
+        estado = "aprobado"
+    }else{
+        estado = "desaprobado"
+    };
+
+    textoResultados.textContent = `Has respondido correctamente ${respuestasCorrectas} de ${cantidadTotalPreguntas} preguntas (${porcentaje.toFixed(2)}%). Estás ${estado}.`;
+
+    contenedorResultados.appendChild(textoResultados);
+
+    let contenedorPrincipal = document.getElementById("resultado");
+    contenedorPrincipal.innerHTML = "";
+    contenedorPrincipal.appendChild(contenedorResultados);
+}
+
+// Vincular el botón a la función mostrarResultado cuando se hace clic
+document.getElementById("mostrarResultadoBtn").addEventListener("click", function() {
+    mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
+});
