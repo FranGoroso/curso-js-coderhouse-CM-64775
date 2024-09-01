@@ -461,11 +461,13 @@ function validarRespuestas(preguntas) {
     preguntas.forEach((pregunta, index) => {
         let seleccionada = document.querySelector(`input[name="pregunta${index}"]:checked`);
         
-        if (seleccionada) {
-            if (seleccionada.value[0] === pregunta.respuestaCorrecta) {
-                correctas++;
-            }
-        }
+        if(seleccionada) { // Esto verifica si el usuario selecciono una opcion para la pregunta actual (True si selecciono, y si no selecciono seria False)
+            localStorage.setItem(`respuesta_pregunta_${index}`/*EJ: respuesta_pregunta_2*/, seleccionada.value);
+            
+            if(seleccionada.value[0] === pregunta.respuestaCorrecta){
+                correctas++
+            }; //seleccionada.value[0], es para que me devuelva el primer carácter del string, y si cada opcion empieza con una letra (Ej: a) Es un bucle que itera por cada... ), entonces tomará la letra "a", asociada a la opcion de la pregunta
+        }           /*Cabe destacar que tambien podria corregir la sintaxis de las preguntas del array que las contien y directamente respuestaCorrecta, puede ser la respuesta completa en vez de la letra, entonces no haria falta el uso indice*/ 
     });
 
     return correctas;
