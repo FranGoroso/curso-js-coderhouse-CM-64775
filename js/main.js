@@ -511,3 +511,6 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", functio
     respuestasCorrectas = validarRespuestas(preguntasFiltradas);
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
+
+
+
