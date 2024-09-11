@@ -1,0 +1,102 @@
+[
+  {
+    "pregunta": "¿Cuál es el propósito de un bucle while en JavaScript?",
+    "opciones": [
+      "a) Ejecutar un bloque de código una vez",
+      "b) Ejecutar un bloque de código mientras una condición es verdadera",
+      "c) Definir una función",
+      "d) Ordenar un array"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué hace el método Array.prototype.map() en JavaScript?",
+    "opciones": [
+      "a) Modifica el array original",
+      "b) Crea un nuevo array con los resultados de aplicar una función a cada elemento del array original",
+      "c) Filtra los elementos de un array según una condición",
+      "d) Encuentra un elemento en un array"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué significa la palabra clave this en JavaScript?",
+    "opciones": [
+      "a) Hace referencia al objeto global",
+      "b) Hace referencia al objeto que está llamando al método",
+      "c) Hace referencia a una variable local",
+      "d) No tiene ningún significado especial"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para agregar uno o más elementos al inicio de un array en JavaScript?",
+    "opciones": [
+      "a) push()",
+      "b) pop()",
+      "c) unshift()",
+      "d) shift()"
+    ],
+    "respuestaCorrecta": "c"
+  },
+  {
+    "pregunta": "¿Qué función se utiliza para convertir un objeto en una cadena JSON en JavaScript?",
+    "opciones": [
+      "a) JSON.stringify()",
+      "b) JSON.parse()",
+      "c) toString()",
+      "d) stringify()"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para ordenar los elementos de un array en JavaScript?",
+    "opciones": [
+      "a) sort()",
+      "b) order()",
+      "c) arrange()",
+      "d) map()"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Cuál es la diferencia entre == y === en JavaScript?",
+    "opciones": [
+      "a) == compara solo valores, === compara valores y tipos",
+      "b) == compara valores y tipos, === compara solo valores",
+      "c) Ambos son iguales, no hay diferencia",
+      "d) == compara solo cadenas, === compara solo números"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué es una función anónima en JavaScript?",
+    "opciones": [
+      "a) Una función sin nombre",
+      "b) Una función que no se puede llamar",
+      "c) Una función que se ejecuta automáticamente",
+      "d) Una función que devuelve un valor nulo"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué hace el operador typeof en JavaScript?",
+    "opciones": [
+      "a) Verifica si una variable está definida",
+      "b) Devuelve el tipo de dato de una variable",
+      "c) Convierte una variable a un tipo específico",
+      "d) Crea una nueva variable"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué es el objeto Math en JavaScript?",
+    "opciones": [
+      "a) Un objeto para realizar operaciones matemáticas",
+      "b) Un objeto para manipular cadenas de texto",
+      "c) Un objeto para manipular arrays",
+      "d) Un objeto para trabajar con fechas"
+    ],
+    "respuestaCorrecta": "a"
+  }
+]

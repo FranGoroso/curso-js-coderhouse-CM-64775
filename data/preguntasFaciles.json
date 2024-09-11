@@ -1,0 +1,152 @@
+[
+  {
+    "pregunta": "¿Qué es un array en programación?",
+    "opciones": [
+      "a) Un tipo de bucle",
+      "b) Una función que realiza cálculos",
+      "c) Una estructura de datos que almacena elementos en una secuencia",
+      "d) Un tipo de variable que almacena cadenas de texto"
+    ],
+    "respuestaCorrecta": "c"
+  },
+  {
+    "pregunta": "¿Cuál es el resultado de 5 * 2 en JavaScript?",
+    "opciones": [
+      "a) 10",
+      "b) 52",
+      "c) Error",
+      "d) 7"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué operador se utiliza para asignar un valor a una variable en JavaScript?",
+    "opciones": [
+      "a) ==",
+      "b) =",
+      "c) ===",
+      "d) =>"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué significa CSS?",
+    "opciones": [
+      "a) Cascading Style Sheets",
+      "b) Computer Styling System",
+      "c) Code Style Sheets",
+      "d) Cascading Simple Sheets"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para agregar un elemento al final de un array en JavaScript?",
+    "opciones": [
+      "a) push()",
+      "b) pop()",
+      "c) unshift()",
+      "d) shift()"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué función se utiliza para mostrar un mensaje en la consola del navegador?",
+    "opciones": [
+      "a) print()",
+      "b) console.log()",
+      "c) alert()",
+      "d) log()"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se utiliza para declarar una constante en JavaScript?",
+    "opciones": [
+      "a) var",
+      "b) let",
+      "c) const",
+      "d) constant"
+    ],
+    "respuestaCorrecta": "c"
+  },
+  {
+    "pregunta": "¿Qué tipo de datos se utiliza para almacenar un valor verdadero o falso?",
+    "opciones": [
+      "a) Number",
+      "b) String",
+      "c) Boolean",
+      "d) Array"
+    ],
+    "respuestaCorrecta": "c"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para convertir una cadena de texto a un número entero en JavaScript?",
+    "opciones": [
+      "a) parseInt()",
+      "b) toString()",
+      "c) toInteger()",
+      "d) Number()"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes operadores se utiliza para concatenar dos cadenas de texto?",
+    "opciones": [
+      "a) +",
+      "b) &",
+      "c) .",
+      "d) %"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué estructura de control se utiliza para tomar decisiones en JavaScript?",
+    "opciones": [
+      "a) for loop",
+      "b) if-else",
+      "c) switch-case",
+      "d) while loop"
+    ],
+    "respuestaCorrecta": "b"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se utiliza para detener la ejecución de un bucle en JavaScript?",
+    "opciones": [
+      "a) break",
+      "b) stop",
+      "c) halt",
+      "d) exit"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué función se utiliza para obtener la longitud de una cadena de texto en JavaScript?",
+    "opciones": [
+      "a) length()",
+      "b) size()",
+      "c) count()",
+      "d) length"
+    ],
+    "respuestaCorrecta": "d"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para eliminar el último elemento de un array en JavaScript?",
+    "opciones": [
+      "a) pop()",
+      "b) push()",
+      "c) remove()",
+      "d) shift()"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué significa NaN en JavaScript?",
+    "opciones": [
+      "a) Not a Number",
+      "b) Not a Null",
+      "c) No Action Needed",
+      "d) Null and Number"
+    ],
+    "respuestaCorrecta": "a"
+  }
+]

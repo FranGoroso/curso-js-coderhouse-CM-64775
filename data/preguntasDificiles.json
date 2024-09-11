@@ -1,0 +1,102 @@
+[
+  {
+    "pregunta": "¿Qué es el event loop en JavaScript?",
+    "opciones": [
+      "a) Un bucle que permite que JavaScript maneje tareas asíncronas",
+      "b) Un método para recorrer arrays",
+      "c) Una función para detener la ejecución del código",
+      "d) Una estructura de datos para manejar eventos"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué es una closure en JavaScript?",
+    "opciones": [
+      "a) Una función que recuerda el entorno en el que fue creada",
+      "b) Un objeto que encapsula datos y métodos",
+      "c) Un tipo de error en el código",
+      "d) Una estructura de control para iterar sobre arrays"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué hace el método bind() en JavaScript?",
+    "opciones": [
+      "a) Asocia una función a un objeto específico",
+      "b) Detiene la ejecución de una función",
+      "c) Copia una función en otra variable",
+      "d) Llama a una función con un objeto específico"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué es la herencia prototipal en JavaScript?",
+    "opciones": [
+      "a) Un modelo de herencia en el que los objetos pueden heredar propiedades y métodos directamente de otros objetos",
+      "b) Un modelo de herencia basado en clases",
+      "c) Un patrón de diseño para organizar código",
+      "d) Una función que permite crear nuevos objetos"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para crear una promesa en JavaScript?",
+    "opciones": [
+      "a) new Promise()",
+      "b) createPromise()",
+      "c) makePromise()",
+      "d) promise()"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué es una función de orden superior en JavaScript?",
+    "opciones": [
+      "a) Una función que puede tomar otras funciones como argumentos o devolver una función como resultado",
+      "b) Una función que siempre devuelve un valor",
+      "c) Una función que solo se puede ejecutar una vez",
+      "d) Una función que es llamada automáticamente al cargar la página"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué hace el método reduce() en JavaScript?",
+    "opciones": [
+      "a) Aplica una función a cada elemento de un array para reducirlo a un único valor",
+      "b) Ordena los elementos de un array en orden descendente",
+      "c) Filtra los elementos de un array según una condición",
+      "d) Encuentra el primer elemento que cumple una condición"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué es el ámbito léxico en JavaScript?",
+    "opciones": [
+      "a) El alcance de una variable está determinado por su ubicación dentro del código fuente",
+      "b) El alcance de una variable se determina durante la ejecución del programa",
+      "c) Una variable solo puede ser accedida dentro de la función en la que se define",
+      "d) Una variable global puede ser accedida desde cualquier parte del código"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué es el operador spread (...) en JavaScript?",
+    "opciones": [
+      "a) Un operador que expande un array o un objeto en sus elementos individuales",
+      "b) Un operador que combina dos arrays",
+      "c) Un operador que crea una copia superficial de un objeto",
+      "d) Un operador que intercambia los elementos de un array"
+    ],
+    "respuestaCorrecta": "a"
+  },
+  {
+    "pregunta": "¿Qué hace el método finally() en una promesa de JavaScript?",
+    "opciones": [
+      "a) Se ejecuta siempre al final de una promesa, independientemente de si se resolvió o rechazó",
+      "b) Resuelve una promesa",
+      "c) Rechaza una promesa",
+      "d) Cancela una promesa"
+    ],
+    "respuestaCorrecta": "a"
+  }
+]

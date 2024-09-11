@@ -1,376 +1,62 @@
-let preguntasFaciles = [
-    {
-        pregunta: "¿Qué es un array en programación?",
-        opciones: [
-            "a) Un tipo de bucle", 
-            "b) Una función que realiza cálculos", 
-            "c) Una estructura de datos que almacena elementos en una secuencia", 
-            "d) Un tipo de variable que almacena cadenas de texto"
-        ],
-        respuestaCorrecta: "c"
-    },
-    {
-        pregunta: "¿Cuál es el resultado de 5 * 2 en JavaScript?",
-        opciones: [
-            "a) 10", 
-            "b) 52", 
-            "c) Error", 
-            "d) 7"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué operador se utiliza para asignar un valor a una variable en JavaScript?",
-        opciones: [
-            "a) ==", 
-            "b) =", 
-            "c) ===", 
-            "d) =>"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué significa CSS?",
-        opciones: [
-            "a) Cascading Style Sheets", 
-            "b) Computer Styling System", 
-            "c) Code Style Sheets", 
-            "d) Cascading Simple Sheets"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué método se utiliza para agregar un elemento al final de un array en JavaScript?",
-        opciones: [
-            "a) push()", 
-            "b) pop()", 
-            "c) unshift()", 
-            "d) shift()"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué función se utiliza para mostrar un mensaje en la consola del navegador?",
-        opciones: [
-            "a) print()", 
-            "b) console.log()", 
-            "c) alert()", 
-            "d) log()"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué palabra clave se utiliza para declarar una constante en JavaScript?",
-        opciones: [
-            "a) var", 
-            "b) let", 
-            "c) const", 
-            "d) constant"
-        ],
-        respuestaCorrecta: "c"
-    },
-    {
-        pregunta: "¿Qué tipo de datos se utiliza para almacenar un valor verdadero o falso?",
-        opciones: [
-            "a) Number", 
-            "b) String", 
-            "c) Boolean", 
-            "d) Array"
-        ],
-        respuestaCorrecta: "c"
-    },
-    {
-        pregunta: "¿Qué método se utiliza para convertir una cadena de texto a un número entero en JavaScript?",
-        opciones: [
-            "a) parseInt()", 
-            "b) toString()", 
-            "c) toInteger()", 
-            "d) Number()"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Cuál de los siguientes operadores se utiliza para concatenar dos cadenas de texto?",
-        opciones: [
-            "a) +", 
-            "b) &", 
-            "c) .", 
-            "d) %"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué estructura de control se utiliza para tomar decisiones en JavaScript?",
-        opciones: [
-            "a) for loop", 
-            "b) if-else", 
-            "c) switch-case", 
-            "d) while loop"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué palabra clave se utiliza para detener la ejecución de un bucle en JavaScript?",
-        opciones: [
-            "a) break", 
-            "b) stop", 
-            "c) halt", 
-            "d) exit"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué función se utiliza para obtener la longitud de una cadena de texto en JavaScript?",
-        opciones: [
-            "a) length()", 
-            "b) size()", 
-            "c) count()", 
-            "d) length"
-        ],
-        respuestaCorrecta: "d"
-    },
-    {
-        pregunta: "¿Qué método se utiliza para eliminar el último elemento de un array en JavaScript?",
-        opciones: [
-            "a) pop()", 
-            "b) push()", 
-            "c) remove()", 
-            "d) shift()"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué significa NaN en JavaScript?",
-        opciones: [
-            "a) Not a Number", 
-            "b) Not a Null", 
-            "c) No Action Needed", 
-            "d) Null and Number"
-        ],
-        respuestaCorrecta: "a"
-    },
-];
-
-let preguntasIntermedias = [
-    {
-        pregunta: "¿Cuál es el propósito de un bucle while en JavaScript?",
-        opciones: [
-            "a) Ejecutar un bloque de código una vez", 
-            "b) Ejecutar un bloque de código mientras una condición es verdadera", 
-            "c) Definir una función", 
-            "d) Ordenar un array"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué hace el método Array.prototype.map() en JavaScript?",
-        opciones: [
-            "a) Modifica el array original", 
-            "b) Crea un nuevo array con los resultados de aplicar una función a cada elemento del array original", 
-            "c) Filtra los elementos de un array según una condición", 
-            "d) Encuentra un elemento en un array"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué significa la palabra clave this en JavaScript?",
-        opciones: [
-            "a) Hace referencia al objeto global", 
-            "b) Hace referencia al objeto que está llamando al método", 
-            "c) Hace referencia a una variable local", 
-            "d) No tiene ningún significado especial"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué método se utiliza para agregar uno o más elementos al inicio de un array en JavaScript?",
-        opciones: [
-            "a) push()", 
-            "b) pop()", 
-            "c) unshift()", 
-            "d) shift()"
-        ],
-        respuestaCorrecta: "c"
-    },
-    {
-        pregunta: "¿Qué función se utiliza para convertir un objeto en una cadena JSON en JavaScript?",
-        opciones: [
-            "a) JSON.stringify()", 
-            "b) JSON.parse()", 
-            "c) toString()", 
-            "d) stringify()"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué método se utiliza para ordenar los elementos de un array en JavaScript?",
-        opciones: [
-            "a) sort()", 
-            "b) order()", 
-            "c) arrange()", 
-            "d) map()"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Cuál es la diferencia entre == y === en JavaScript?",
-        opciones: [
-            "a) == compara solo valores, === compara valores y tipos", 
-            "b) == compara valores y tipos, === compara solo valores", 
-            "c) Ambos son iguales, no hay diferencia", 
-            "d) == compara solo cadenas, === compara solo números"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué es una función anónima en JavaScript?",
-        opciones: [
-            "a) Una función sin nombre", 
-            "b) Una función que no se puede llamar", 
-            "c) Una función que se ejecuta automáticamente", 
-            "d) Una función que devuelve un valor nulo"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué hace el operador typeof en JavaScript?",
-        opciones: [
-            "a) Verifica si una variable está definida", 
-            "b) Devuelve el tipo de dato de una variable", 
-            "c) Convierte una variable a un tipo específico", 
-            "d) Crea una nueva variable"
-        ],
-        respuestaCorrecta: "b"
-    },
-    {
-        pregunta: "¿Qué es el objeto Math en JavaScript?",
-        opciones: [
-            "a) Un objeto para realizar operaciones matemáticas", 
-            "b) Un objeto para manipular cadenas de texto", 
-            "c) Un objeto para manipular arrays", 
-            "d) Un objeto para trabajar con fechas"
-        ],
-        respuestaCorrecta: "a"
-    },
-];
-
-let preguntasDificiles = [
-    {
-        pregunta: "¿Qué es el event loop en JavaScript?",
-        opciones: [
-            "a) Un bucle que permite que JavaScript maneje tareas asíncronas", 
-            "b) Un método para recorrer arrays", 
-            "c) Una función para detener la ejecución del código", 
-            "d) Una estructura de datos para manejar eventos"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué es una closure en JavaScript?",
-        opciones: [
-            "a) Una función que recuerda el entorno en el que fue creada", 
-            "b) Un objeto que encapsula datos y métodos", 
-            "c) Un tipo de error en el código", 
-            "d) Una estructura de control para iterar sobre arrays"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué hace el método bind() en JavaScript?",
-        opciones: [
-            "a) Asocia una función a un objeto específico", 
-            "b) Detiene la ejecución de una función", 
-            "c) Copia una función en otra variable", 
-            "d) Llama a una función con un objeto específico"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué es la herencia prototipal en JavaScript?",
-        opciones: [
-            "a) Un modelo de herencia en el que los objetos pueden heredar propiedades y métodos directamente de otros objetos", 
-            "b) Un modelo de herencia basado en clases", 
-            "c) Un patrón de diseño para organizar código", 
-            "d) Una función que permite crear nuevos objetos"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué método se utiliza para crear una promesa en JavaScript?",
-        opciones: [
-            "a) new Promise()", 
-            "b) createPromise()", 
-            "c) makePromise()", 
-            "d) promise()"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué es una función de orden superior en JavaScript?",
-        opciones: [
-            "a) Una función que puede tomar otras funciones como argumentos o devolver una función como resultado", 
-            "b) Una función que siempre devuelve un valor", 
-            "c) Una función que solo se puede ejecutar una vez", 
-            "d) Una función que es llamada automáticamente al cargar la página"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué hace el método reduce() en JavaScript?",
-        opciones: [
-            "a) Aplica una función a cada elemento de un array para reducirlo a un único valor", 
-            "b) Ordena los elementos de un array en orden descendente", 
-            "c) Filtra los elementos de un array según una condición", 
-            "d) Encuentra el primer elemento que cumple una condición"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué es el ámbito léxico en JavaScript?",
-        opciones: [
-            "a) El alcance de una variable está determinado por su ubicación dentro del código fuente", 
-            "b) El alcance de una variable se determina durante la ejecución del programa", 
-            "c) Una variable solo puede ser accedida dentro de la función en la que se define", 
-            "d) Una variable global puede ser accedida desde cualquier parte del código"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué es el operador spread (...) en JavaScript?",
-        opciones: [
-            "a) Un operador que expande un array o un objeto en sus elementos individuales", 
-            "b) Un operador que combina dos arrays", 
-            "c) Un operador que crea una copia superficial de un objeto", 
-            "d) Un operador que intercambia los elementos de un array"
-        ],
-        respuestaCorrecta: "a"
-    },
-    {
-        pregunta: "¿Qué hace el método finally() en una promesa de JavaScript?",
-        opciones: [
-            "a) Se ejecuta siempre al final de una promesa, independientemente de si se resolvió o rechazó", 
-            "b) Resuelve una promesa", 
-            "c) Rechaza una promesa", 
-            "d) Cancela una promesa"
-        ],
-        respuestaCorrecta: "a"
-    },
-];
-
-//FUNCIONALIDAD NECESARIA: Guardar en el local storage las respuestas del usuario 
-
 //PROXIMAMENTE: Crear un JSON con todas las preguntas o asociarlo a una API ya existente
 //               Despues mejorar toda la parte visual del programa y añadirle graficos de barras o algo asi
+
+//Traigo las preguntas faciles desde mi archivo JSON 
+async function cargarPreguntasFaciles(){
+    try {
+        const response = await fetch("/data/preguntasFaciles.json");
+        if(!response.ok){
+            throw new Error("No se pueden cargar las preguntas, intenta nuevamente en unos minutos");
+        };
+        const data = await response.json(); 
+        return data;
+    }catch (error){
+        console.error("Error:", error);
+        return [];
+    }
+};
+
+
+//Traigo las preguntas intermedias desde mi archivo JSON 
+async function cargarPreguntasIntermedias() {
+    try {
+        const response = await fetch("/data/preguntasIntermedias.json");
+        if (!response.ok) {
+            throw new Error("No se pueden cargar las preguntas, intenta nuevamente en unos minutos");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error:", error);
+        return [];
+    }
+};
+
+
+//Traigo las preguntas dificiles desde mi archivo JSON 
+async function cargarPreguntasDificiles() {
+    try {
+        const response = await fetch("/data/preguntasDificiles.json");
+        if (!response.ok) {
+            throw new Error("No se pueden cargar las preguntas, intenta nuevamente en unos minutos");
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error:", error);
+        return [];
+    }
+};
 
 
 document.getElementById("btnComenzar").addEventListener("click", darComienzo);
 let respuestasCorrectas = 0;
 
-function darComienzo(){ 
+async function darComienzo(){ 
     localStorage.clear(); //Aca borro todas las respuestas guardadas anteriormente
 
     let nivelSeleccionado = seleccionarDificultad();
-    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
+    let preguntasFiltradas = await filtrarPreguntasPorDificultad(nivelSeleccionado);
     mostrarPreguntas(preguntasFiltradas);
 };
 
@@ -391,8 +77,15 @@ function seleccionarDificultad(){
 
 
 
-function filtrarPreguntasPorDificultad(nvlDif) { 
+async function filtrarPreguntasPorDificultad(nvlDif) { 
+
+    //Carga las preguntas en las variables para que puedan ser utilizadas
+    let preguntasFaciles = await cargarPreguntasFaciles();
+    let preguntasIntermedias = await cargarPreguntasIntermedias();
+    let preguntasDificiles = await cargarPreguntasDificiles();
+
     // Filtra las preguntas según la dificultad seleccionada por el usuario
+
     switch(nvlDif) {
         case "facil":
             return preguntasFaciles;
@@ -513,4 +206,34 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", functio
 });
 
 
+/*COSAS PENDIENTES PARA HACER EN EL PROYECTO:
 
+-CREAR UNA API PROPIA DE LAS PREGUNTAS EN JSON, SUBIRLO A MI GITHUB Y TOMAR INFO DESDE ESE REPOSITORIO QUE VOY A SUBIR (API PROPIA)
+-Usar las funciones async y await, junto con .then para actualizar el codigo 
+-Utilizar constructores y estudiarlos más
+-Utilizar manejo de excepciones y errores con try, catch y finally 
+-QUE SERIA REJECT? 
+-Porque utilizo err y error en catch y porque no va con un try antes? 
+- Hacer un LOGIN para las preguntas y que cada usuario tenga su contraseña y pueda ver los puntajes más altos de los demás usuarios (Tabla de puntajes)
+- Colocar un TEMPORIZADOR DEPENDIENDO LA DIFICULTAD Y LA CANTIDAD DE PREGUNTAS SELECCIONADAS POR EL USUARIO 
+- Permitirle al usuario seleccionar la dificultad y tambien la cantidad de preguntas totales 
+- Solicitarle al usuario un correo electrónico para poder hacer email marketing, saludarlos y darles las gracias a cada uno por participar de mi proyecto.
+    y tambien enviarles mi CV y página web por si la desean visitar
+
+- Hacer un README explicando lo que hace el codigo y como lo hace 
+- Agregarle GIFT a el proyecto para hacerlo mas divertido, dinamico e interactivo al usuario 
+*/ 
+
+
+/*PARA PROYECTO FINAL: 
+1) 2 arhcivos Javascript para manejar la interfaz gráfica del simulador 
+2) Un archivo en JSON que simule mi base de datos
+3) Incluir carpeta de assets para imagenes de mi simulador 
+4) Hacer un README para que se comprenda el proyecto 
+5) Tengo que usar una libreria de cualquier cosa
+6) Codigo claro, sin muchos comentarios que puedan complejizar la lectura y comprension de mi código (solo los comentarios necesarios)
+7) Validar CONTROL DE ERRORES y si hay algún error, mostrarlo por la interfaz y no por la consola 
+8) - COMPLEJO + DINÁMICO 
+9) 
+
+*/
