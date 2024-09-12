@@ -218,34 +218,4 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", async f
 });
 
 
-/*COSAS PENDIENTES PARA HACER EN EL PROYECTO:
 
--CREAR UNA API PROPIA DE LAS PREGUNTAS EN JSON, SUBIRLO A MI GITHUB Y TOMAR INFO DESDE ESE REPOSITORIO QUE VOY A SUBIR (API PROPIA)
--Usar las funciones async y await, junto con .then para actualizar el codigo 
--Utilizar constructores y estudiarlos más
--Utilizar manejo de excepciones y errores con try, catch y finally 
--QUE SERIA REJECT? 
--Porque utilizo err y error en catch y porque no va con un try antes? 
-- Hacer un LOGIN para las preguntas y que cada usuario tenga su contraseña y pueda ver los puntajes más altos de los demás usuarios (Tabla de puntajes)
-- Colocar un TEMPORIZADOR DEPENDIENDO LA DIFICULTAD Y LA CANTIDAD DE PREGUNTAS SELECCIONADAS POR EL USUARIO 
-- Permitirle al usuario seleccionar la dificultad y tambien la cantidad de preguntas totales 
-- Solicitarle al usuario un correo electrónico para poder hacer email marketing, saludarlos y darles las gracias a cada uno por participar de mi proyecto.
-    y tambien enviarles mi CV y página web por si la desean visitar
-
-- Hacer un README explicando lo que hace el codigo y como lo hace 
-- Agregarle GIFT a el proyecto para hacerlo mas divertido, dinamico e interactivo al usuario 
-*/ 
-
-
-/*PARA PROYECTO FINAL: 
-1) 2 arhcivos Javascript para manejar la interfaz gráfica del simulador 
-2) Un archivo en JSON que simule mi base de datos
-3) Incluir carpeta de assets para imagenes de mi simulador 
-4) Hacer un README para que se comprenda el proyecto 
-5) Tengo que usar una libreria de cualquier cosa
-6) Codigo claro, sin muchos comentarios que puedan complejizar la lectura y comprension de mi código (solo los comentarios necesarios)
-7) Validar CONTROL DE ERRORES y si hay algún error, mostrarlo por la interfaz y no por la consola 
-8) - COMPLEJO + DINÁMICO 
-9) 
-
-*/
