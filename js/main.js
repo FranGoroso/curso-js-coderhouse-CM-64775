@@ -1,6 +1,3 @@
-//PROXIMAMENTE: Crear un JSON con todas las preguntas o asociarlo a una API ya existente
-//               Despues mejorar toda la parte visual del programa y añadirle graficos de barras o algo asi
-
 //Traigo las preguntas faciles desde mi archivo JSON 
 async function cargarPreguntasFaciles(){
     try {
@@ -9,7 +6,7 @@ async function cargarPreguntasFaciles(){
             throw new Error("No se pueden cargar las preguntas, intenta nuevamente en unos minutos");
         };
         const data = await response.json(); 
-        return data;
+        return Array.isArray(data) ? data : [data];
     }catch (error){
         console.error("Error:", error);
         return [];
@@ -25,7 +22,7 @@ async function cargarPreguntasIntermedias() {
             throw new Error("No se pueden cargar las preguntas, intenta nuevamente en unos minutos");
         }
         const data = await response.json();
-        return data;
+        return Array.isArray(data) ? data : [data];
     } catch (error) {
         console.error("Error:", error);
         return [];
@@ -41,7 +38,7 @@ async function cargarPreguntasDificiles() {
             throw new Error("No se pueden cargar las preguntas, intenta nuevamente en unos minutos");
         }
         const data = await response.json();
-        return data;
+        return Array.isArray(data) ? data : [data];
     } catch (error) {
         console.error("Error:", error);
         return [];
@@ -49,90 +46,102 @@ async function cargarPreguntasDificiles() {
 };
 
 
+
+// Vincular el botón a la función darComienzo cuando se hace clic
 document.getElementById("btnComenzar").addEventListener("click", darComienzo);
 let respuestasCorrectas = 0;
 
 async function darComienzo(){ 
-    localStorage.clear(); //Aca borro todas las respuestas guardadas anteriormente
+    localStorage.clear(); //Elimino las preguntas anteriores guardadas en el local storage
 
     let nivelSeleccionado = seleccionarDificultad();
     let preguntasFiltradas = await filtrarPreguntasPorDificultad(nivelSeleccionado);
     mostrarPreguntas(preguntasFiltradas);
 };
 
-document.getElementById("mostrarResultadoBtn").addEventListener("click", function() {
+
+// Vincular el botón a la función mostrarResultado cuando se hace clic
+document.getElementById("mostrarResultadoBtn").addEventListener("click", async function() { 
     let nivelSeleccionado = seleccionarDificultad();
-    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
+    let preguntasFiltradas = await filtrarPreguntasPorDificultad(nivelSeleccionado);
+    let cantidadTotalPreguntas = preguntasFiltradas.length;
+
     respuestasCorrectas = validarRespuestas(preguntasFiltradas);
-    mostrarResultado(respuestasCorrectas, preguntasFiltradas.length);
+    mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
 
 
 
 
+// Selecciono la dificultad solicitada por el usuario
 function seleccionarDificultad(){
-    return document.getElementById("nivel").value; //Tomo el valor seleccionado por el usuario en el DOM (Nivel de dificultad)
+    return document.getElementById("nivel").value; 
 };
 
 
 
-
+// Funcion asincrónica (porque trae promesas del JSON) que filtra las preguntas por dificultad
 async function filtrarPreguntasPorDificultad(nvlDif) { 
-
-    //Carga las preguntas en las variables para que puedan ser utilizadas
     let preguntasFaciles = await cargarPreguntasFaciles();
     let preguntasIntermedias = await cargarPreguntasIntermedias();
     let preguntasDificiles = await cargarPreguntasDificiles();
 
-    // Filtra las preguntas según la dificultad seleccionada por el usuario
+    let preguntasFiltradas;
 
     switch(nvlDif) {
         case "facil":
-            return preguntasFaciles;
+            preguntasFiltradas = preguntasFaciles;
+            break;
         case "intermedio":
-            return preguntasIntermedias;
+            preguntasFiltradas = preguntasIntermedias;
+            break;
         case "dificil":
-            return preguntasDificiles;
+            preguntasFiltradas = preguntasDificiles;
+            break;
         default:
-            return preguntasFaciles; // Valor por defecto si no se selecciona un nivel válido
+            preguntasFiltradas = preguntasFaciles;
     }
+
+    return Array.isArray(preguntasFiltradas) ? preguntasFiltradas : [];
 };
 
 
 
 
+// Crea un div contenedor en el DOM para visualizar las preguntas de manera clara para el usuario 
 function crearContenedorPreguntas(preguntas){
-    let contenedorPreguntas = document.createElement("div"); // Crea un div contenedor para mostrar las preguntas en el DOM
+    let contenedorPreguntas = document.createElement("div"); 
 
     preguntas.forEach((e, i) => { 
-        let textoPregunta = document.createElement("p"); // Crea un elemento en el DOM el cual se guarda en la variable
-        textoPregunta.textContent = `${i + 1}. ${e.pregunta}`; // Modifico el el contenido de texto que esta en la variable del DOM (i es el indice {el cual muestra el numero de la pregunta y e.pregunta es la pregunta como tal que al estar en el bucle, las recorre todas})
-        contenedorPreguntas.appendChild(textoPregunta); // Aqui agrego en cada iteracion, el texto de la oregunta al contenedor que va a tener las preguntas y opciones mas adelante
+        let textoPregunta = document.createElement("p"); 
+        textoPregunta.textContent = `${i + 1}. ${e.pregunta}`; 
+        contenedorPreguntas.appendChild(textoPregunta); 
 
-        let contenedorOpciones = crearContenedorOpciones(e.opciones, i); // Creo un contenedor para las opciones (en cada iteracion e.opciones, va a recorrer todas, y la i seria como el identificador el cual se asocia a cada pregunta, esto tiene que ver con la funcion de crearContenedorOpciones)
-        contenedorPreguntas.appendChild(contenedorOpciones); // Cumplo el objetivo y agrego las opciones al contenedor principal que tambien tiene las preguntas, ahora "contenedorPreguntas" tiene todo
+        let contenedorOpciones = crearContenedorOpciones(e.opciones, i); 
+        contenedorPreguntas.appendChild(contenedorOpciones); 
     });
 
-    return contenedorPreguntas; // Retorna el contenedor de preguntas oon las opciones tambien
+    return contenedorPreguntas; 
 };
 
 
 
+// Crea un div contenedor en el DOM para visualizar las opciones de manera clara para el usuario 
 
 function crearContenedorOpciones(opciones, index){
     let contenedorOpciones = document.createElement("div"); 
 
-    let respuestaGuardada = localStorage.getItem(`respuesta_pregunta_${index}`); //Recuperando la respuesta que estaba guardada en el local storage
+    let respuestaGuardada = localStorage.getItem(`respuesta_pregunta_${index}`);
 
     opciones.forEach(opcion => {
-        let opcionesElemento = document.createElement("label"); //Creo un label en el DOM para poder asocioarlo a cada pregunta
-        let inputOpcion = document.createElement("input"); // Esto es para seleccionar opciones
-        inputOpcion.type = "radio"; // Para que la opcion sea redonda 
-        inputOpcion.name = `pregunta${index}`; // Asociando las preguntas a las opciones para que tengan UNA SOLA OPCION
-        inputOpcion.value = opcion; // Se agrega el valor que quiero tener en la opcion seleccionada por el usuario, para validar que realmente sea correcto
+        let opcionesElemento = document.createElement("label"); 
+        let inputOpcion = document.createElement("input"); 
+        inputOpcion.type = "radio";  
+        inputOpcion.name = `pregunta${index}`; 
+        inputOpcion.value = opcion; 
 
         if (opcion === respuestaGuardada){
-            inputOpcion.checked = true; //Si la opcion conicide con la respuestaGuardada, se volvera a cargar la opcion con la opcion "marcada", (eso se logra con el .checked)
+            inputOpcion.checked = true;
         };
         
         opcionesElemento.appendChild(inputOpcion);
@@ -145,35 +154,37 @@ function crearContenedorOpciones(opciones, index){
 };
 
 
+// Funcion para mostrar preguntas en los contenedores creados para el DOM
 function mostrarPreguntas(preguntas){
     let contenedorPreguntas = crearContenedorPreguntas(preguntas);
     let contenedorPrincipal = document.getElementById("preguntas");
-    contenedorPrincipal.innerHTML = ""; // Esto limpia las preguntas anteriores
+    contenedorPrincipal.innerHTML = ""; 
     contenedorPrincipal.appendChild(contenedorPreguntas);
 };
 
 
 
-
+// Función para validar las respuestas del usuario 
 function validarRespuestas(preguntas) {
     let correctas = 0;
 
     preguntas.forEach((pregunta, index) => {
         let seleccionada = document.querySelector(`input[name="pregunta${index}"]:checked`);
         
-        if(seleccionada) { // Esto verifica si el usuario selecciono una opcion para la pregunta actual (True si selecciono, y si no selecciono seria False)
-            localStorage.setItem(`respuesta_pregunta_${index}`/*EJ: respuesta_pregunta_2*/, seleccionada.value);
+        if(seleccionada) { 
+            localStorage.setItem(`respuesta_pregunta_${index}`, seleccionada.value);
             
             if(seleccionada.value[0] === pregunta.respuestaCorrecta){
                 correctas++
-            }; //seleccionada.value[0], es para que me devuelva el primer carácter del string, y si cada opcion empieza con una letra (Ej: a) Es un bucle que itera por cada... ), entonces tomará la letra "a", asociada a la opcion de la pregunta
-        }           /*Cabe destacar que tambien podria corregir la sintaxis de las preguntas del array que las contien y directamente respuestaCorrecta, puede ser la respuesta completa en vez de la letra, entonces no haria falta el uso indice*/ 
+            }; 
+        }            
     });
 
     return correctas;
 }
 
 
+// Función para mostrar los resultados de las respuestas y decir si esta aprobado o no 
 function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
     let contenedorResultados = document.createElement("div");
     let textoResultados = document.createElement("p");
@@ -196,10 +207,11 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
 }
 
 // Vincular el botón a la función mostrarResultado cuando se hace clic
-document.getElementById("mostrarResultadoBtn").addEventListener("click", function() {
+document.getElementById("mostrarResultadoBtn").addEventListener("click", async function() {
     let nivelSeleccionado = seleccionarDificultad();
-    let preguntasFiltradas = filtrarPreguntasPorDificultad(nivelSeleccionado);
-    let cantidadTotalPreguntas = preguntasFiltradas.length; // Definir cantidadTotalPreguntas
+    let preguntasFiltradas = await filtrarPreguntasPorDificultad(nivelSeleccionado);
+
+    let cantidadTotalPreguntas = preguntasFiltradas.length; 
 
     respuestasCorrectas = validarRespuestas(preguntasFiltradas);
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
