@@ -178,6 +178,7 @@ function obtenerPreguntasAleatorias(preguntas, numeroDePreguntas) {
 // Declarar globalmente el intervalo del temporizador
 let intervaloTemporizador;
 
+//Funcion para inciar temporizador 
 function iniciarTemporizador(duracion, preguntas) {
     let tiempoRestante = duracion;
     let temporizadorElemento = document.getElementById("temporizador");
@@ -189,6 +190,12 @@ function iniciarTemporizador(duracion, preguntas) {
 
     // Iniciar el temporizador
     intervaloTemporizador = setInterval(() => {
+        let minutos = Math.floor(tiempoRestante / 60);
+        let segundos = tiempoRestante % 60;
+    
+        // Actualizar el texto del temporizador
+        temporizadorElemento.textContent = `${minutos}m ${segundos}s`;
+        
         if (tiempoRestante <= 0) {
             clearInterval(intervaloTemporizador); // Detener el temporizador cuando llegue a 0
 
@@ -204,11 +211,11 @@ function iniciarTemporizador(duracion, preguntas) {
             });
 
         } else {
-            temporizadorElemento.textContent = `Tiempo restante: ${tiempoRestante} segundos`;
             tiempoRestante--;
         }
     }, 1000);
 }
+
 
 
 //Funcion para detener el cuestionario si tocamos boton o se acaba el tiempo
