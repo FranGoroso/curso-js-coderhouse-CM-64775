@@ -18,6 +18,9 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", async f
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
 
+// Llamar a la función cuando la página se haya cargado
+document.addEventListener("DOMContentLoaded", solicitarNombreUsuario);
+
 /*------------------ FIN DE LOS EVENTOS ----------------*/ 
 
 
@@ -37,7 +40,48 @@ mostrarPreguntas
 validarRespuestas
 mostrarResultado
 mezclarPreguntas
+solicitarNombreUsuario
+mostrarMensajeBienvenida
 */
+
+//Funcion para solicitar nombre del usuario 
+function solicitarNombreUsuario(){
+    let nombreUsuario = localStorage.getItem("nombreUsuario");
+
+    if (!nombreUsuario) {
+        Swal.fire({
+            title: '¡Bienvenido!',
+            text: 'Por favor, ingresa tu nombre:',
+            input: 'text',
+            inputPlaceholder: 'Tu nombre',
+            allowOutsideClick: false,
+            confirmButtonText: 'Aceptar',
+            inputValidator: (value) => {
+                if (!value) {
+                    return 'Por favor, ingresa un nombre válido';
+                }
+            }
+        }).then((result) => {
+            if (result.value) {
+                nombreUsuario = result.value.trim();
+                localStorage.setItem("nombreUsuario", nombreUsuario);
+                mostrarMensajeBienvenida(nombreUsuario);
+            }
+        });
+    } else {
+        mostrarMensajeBienvenida(nombreUsuario);
+    }
+}
+
+// Función para mostrar un mensaje de bienvenida personalizado
+function mostrarMensajeBienvenida(nombreUsuario) {
+    Swal.fire({
+        title: `¡Bienvenido, ${nombreUsuario}!`,
+        text: 'Nos alegra verte de nuevo. ¿Listo para continuar con el cuestionario?',
+        icon: 'info',
+        confirmButtonText: 'Comenzar'
+    });
+}
 
 
 // Función para obtener preguntas aleatorias de un array dado (DESHABILITADA POR EL MOMENTO)
