@@ -40,7 +40,7 @@ mezclarPreguntas
 */
 
 
-// Función para obtener preguntas aleatorias de un array dado
+// Función para obtener preguntas aleatorias de un array dado (DESHABILITADA POR EL MOMENTO)
 function obtenerPreguntasAleatorias(preguntas, numeroDePreguntas) {
     const preguntasAleatorias = [];
     const preguntasCopia = [...preguntas];
