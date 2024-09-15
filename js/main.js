@@ -21,6 +21,25 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", async f
 /*------------------ FIN DE LOS EVENTOS ----------------*/ 
 
 
+/*NOMBRE DE TODAS LAS FUNCIONES PARA BUSCAR EN LA BARRA DE BUSQUEDA: (Solo para correccion) 
+obtenerPreguntasAleatorias
+iniciarTemporizador
+finalizarCuestionario
+mostrarError
+cargarResultadoPrevio
+darComienzo
+seleccionarDificultad
+cargarPreguntasPorNivel
+filtrarPreguntasPorDificultad
+crearContenedorPreguntas
+crearContenedorOpciones
+mostrarPreguntas
+validarRespuestas
+mostrarResultado
+mezclarPreguntas
+*/
+
+
 // Función para obtener preguntas aleatorias de un array dado
 function obtenerPreguntasAleatorias(preguntas, numeroDePreguntas) {
     const preguntasAleatorias = [];
