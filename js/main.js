@@ -135,19 +135,20 @@ async function darComienzo() {
     let preguntasPorNivel = await filtrarPreguntasPorDificultad(nivelSeleccionado);
 
     if (!preguntasPorNivel[nivelSeleccionado] || preguntasPorNivel[nivelSeleccionado].length === 0) {
-        // Si no hay preguntas cargadas para el nivel seleccionado, o si tuvo algun fallo al cargar
+        // Si no hay preguntas cargadas para el nivel seleccionado, o si tuvo algún fallo al cargar
         mostrarError("No hay preguntas disponibles para el nivel seleccionado.");
         return;
     }
 
     let preguntasFiltradas = preguntasPorNivel[nivelSeleccionado];
-    preguntasFiltradas = mezclarPreguntas(preguntasFiltradas); 
+    // preguntasFiltradas = mezclarPreguntas(preguntasFiltradas);  // Esta linea trae problemas a la hora de validar, porque me toma la pregunta bien pero la respuesta correcta la mezcla 
 
     mostrarPreguntas(preguntasFiltradas); 
-    document.getElementById("mostrarResultadoBtn").style.display = "block"; // Muestro el botón de resultado
+    document.getElementById("mostrarResultadoBtn").style.display = "block"; 
 
-    iniciarTemporizador(120, preguntasFiltradas); // Aca puedo configurar cuanto tiempo va a durar el temporizador 
+    iniciarTemporizador(120, preguntasFiltradas); // Aca puedo configurar cuánto tiempo va a durar el temporizador 
 };
+
 
 
 
@@ -202,11 +203,12 @@ async function filtrarPreguntasPorDificultad(nivelSeleccionado) {
             mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`);
             continue;
         }
-        preguntasFiltradas[nivel] = obtenerPreguntasAleatorias(preguntas, 15); //Aca marco la cantidad de preguntas que quiero 
+        preguntasFiltradas[nivel] = preguntas; // Se cargan las preguntas tal cual están y no las mezclo pero me gustaria hacerlo en un futuro asi que no la elimino
     }
     
     return preguntasFiltradas;
 }
+
 
 
 
@@ -268,7 +270,45 @@ function mostrarPreguntas(preguntas) {
 
 /*REHACIENDO LA FUNCION PORQUE NO VA BIEN.*/ 
 function validarRespuestas(preguntas) {
+    let respuestasCorrectas = 0;
+
+    preguntas.forEach((pregunta, index) => {
+        let opciones = document.getElementsByName(`pregunta${index}`);
+        let respuestaSeleccionada = "";
+    
+        // Verificar cuál opción fue seleccionada
+        for (let i = 0; i < opciones.length; i++) {
+            if (opciones[i].checked) {
+                respuestaSeleccionada = opciones[i].value;
+                break;
+            }
+        }
+
+        //CONTROL PARA LA DEPURACION 
+        console.log(`Pregunta ${index + 1}:`);
+        console.log(`Respuesta seleccionada: ${respuestaSeleccionada}`);
+        console.log(`Respuesta correcta: ${pregunta.respuestaCorrecta}`);
+    
+        const respuestaSeleccionadaNormalizada = respuestaSeleccionada.trim().toLowerCase();
+        const respuestaCorrectaNormalizada = pregunta.respuestaCorrecta.trim().toLowerCase();
+    
+        if (respuestaSeleccionadaNormalizada === respuestaCorrectaNormalizada) {
+            respuestasCorrectas++;
+            //CONTROL PARA LA DEPURACION
+            console.log(`Validación exitosa para la pregunta ${index + 1}`);
+        } else {
+            //CONTROL PARA LA DEPURACION
+            console.log(`Validación fallida para la pregunta ${index + 1}`);
+        }
+    
+        // Guardar la respuesta seleccionada en localStorage
+        localStorage.setItem(`respuesta_pregunta_${index}`, respuestaSeleccionada);
+    });
+    
+
+    return respuestasCorrectas;
 }
+
 
 
 
@@ -307,7 +347,7 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
 }
 
 
-//Funcion para mezclar todas las preguntas y que no salgan siempre igual a la hora de hacer el cuestionario
+//Funcion para mezclar todas las preguntas y que no salgan siempre igual a la hora de hacer el cuestionario (DESHABILITADAD POR EL MOMENTO)
 function mezclarPreguntas(preguntas) {
     for (let i = preguntas.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1)); // Número aleatorio entre 0 e i
