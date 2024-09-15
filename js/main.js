@@ -5,6 +5,9 @@ document.getElementById("btnComenzar").addEventListener("click", darComienzo);
 //Esto es para cargar los datos anteriores del usuario si es que existian 
 document.addEventListener("DOMContentLoaded", cargarResultadoPrevio);
 
+//Esto cierra la sesion de usuario al tocar el boton
+document.getElementById("btnCerrarSesion").addEventListener("click", cerrarSesion);
+
 // Cuando se toca el botón de mostrar resultados
 document.getElementById("mostrarResultadoBtn").addEventListener("click", async function() {
     // Detener el temporizador
@@ -18,14 +21,14 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", async f
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
 
-// Llamar a la función cuando la página se haya cargado
-document.addEventListener("DOMContentLoaded", solicitarNombreUsuario);
+// // Llamar a la función cuando la página se haya cargado
+// document.addEventListener("DOMContentLoaded", solicitarNombreUsuario);
 
 /*------------------ FIN DE LOS EVENTOS ----------------*/ 
 
 
 /*NOMBRE DE TODAS LAS FUNCIONES PARA BUSCAR EN LA BARRA DE BUSQUEDA: (Solo para correccion) 
-obtenerPreguntasAleatorias
+obtenerPreguntasAleatorias (DESHABILITADA MOMENTANEAMENTE)
 iniciarTemporizador
 finalizarCuestionario
 mostrarError
@@ -42,46 +45,119 @@ mostrarResultado
 mezclarPreguntas
 solicitarNombreUsuario
 mostrarMensajeBienvenida
+cerrarSesion
 */
 
+
 //Funcion para solicitar nombre del usuario 
-function solicitarNombreUsuario(){
-    let nombreUsuario = localStorage.getItem("nombreUsuario");
-
-    if (!nombreUsuario) {
-        Swal.fire({
-            title: '¡Bienvenido!',
-            text: 'Por favor, ingresa tu nombre:',
-            input: 'text',
-            inputPlaceholder: 'Tu nombre',
-            allowOutsideClick: false,
-            confirmButtonText: 'Aceptar',
-            inputValidator: (value) => {
-                if (!value) {
-                    return 'Por favor, ingresa un nombre válido';
-                }
-            }
-        }).then((result) => {
-            if (result.value) {
-                nombreUsuario = result.value.trim();
-                localStorage.setItem("nombreUsuario", nombreUsuario);
-                mostrarMensajeBienvenida(nombreUsuario);
-            }
-        });
+function solicitarNombreUsuario() {
+    // Verificar si el nombre ya está guardado en localStorage
+    let nombreGuardado = localStorage.getItem('nombreUsuario');
+  
+    if (nombreGuardado) {
+      // Si el nombre ya está guardado, mostrar el mensaje de bienvenida
+      mostrarMensajeBienvenida(nombreGuardado);
     } else {
-        mostrarMensajeBienvenida(nombreUsuario);
+      // Si no hay nombre guardado, pedirlo al usuario
+      Swal.fire({
+        title: 'Ingresa tu nombre',
+        input: 'text',
+        inputPlaceholder: 'Escribe tu nombre',
+        showCancelButton: false,
+        confirmButtonText: 'Aceptar',
+        allowOutsideClick: false,
+        inputValidator: (value) => {
+          if (!value) {
+            return '¡Por favor, ingresa un nombre!';
+          }
+        }
+      }).then((result) => {
+        let nombre = result.value.toLowerCase();
+  
+        //MENSAJE PERSONALIZADO 
+        if (nombre === "javi" || nombre === "maxi") {
+          Swal.fire({
+            title: `¿Sos el ${nombre === 'javi' ? 'profe' : 'tutor'} de mi curso?`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, soy yo',
+            cancelButtonText: 'No',
+          }).then((confirmResult) => {
+            if (confirmResult.isConfirmed) {
+              let mensajePersonalizado = nombre === "javi" 
+                ? "Hola, crack de la vida. Gracias por enseñarme a hacer todo esto. ¡Sos un genio!"
+                : "Hola Maxi! Gracias por aportar siempre y ser alto tutor! ¡Ídolo!";
+                
+              Swal.fire({
+                title: '¡Bienvenido!',
+                text: mensajePersonalizado,
+                icon: 'success',
+                confirmButtonText: 'Aceptar',
+              });
+            } else {
+              Swal.fire({
+                title: 'Bienvenido de todos modos',
+                text: `Hola ${nombre.charAt(0).toUpperCase() + nombre.slice(1)}!`,
+                icon: 'info',
+                confirmButtonText: 'Aceptar',
+              });
+            }
+          });
+        } else {
+          Swal.fire({
+            title: '¡Bienvenido!',
+            text: `Hola ${nombre.charAt(0).toUpperCase() + nombre.slice(1)}!`,
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+          });
+        }
+  
+        // Guardar el nombre en localStorage
+        localStorage.setItem('nombreUsuario', result.value);
+      });
     }
+  }
+  
+  // Función para mostrar un mensaje de bienvenida personalizado
+  function mostrarMensajeBienvenida(nombreUsuario) {
+    let nombre = nombreUsuario.toLowerCase();
+  
+    if (nombre === "javi" || nombre === "maxi") {
+      let mensajePersonalizado = nombre === "javi" 
+        ? "Hola, crack de la vida. Gracias por enseñarme a hacer todo esto. ¡Sos un genio!"
+        : "Hola Maxi! Gracias por aportar siempre y ser alto tutor! ¡Ídolo!";
+  
+      Swal.fire({
+        title: '¡Bienvenido de nuevo!',
+        text: mensajePersonalizado,
+        icon: 'success',
+        confirmButtonText: 'Aceptar',
+      });
+    } else {
+      Swal.fire({
+        title: '¡Bienvenido de nuevo!',
+        text: `Hola ${nombreUsuario.charAt(0).toUpperCase() + nombreUsuario.slice(1)}!`,
+        icon: 'info',
+        confirmButtonText: 'Aceptar',
+      });
+    }
+  }
+
+// Función para cerrar sesion de usuario activo
+function cerrarSesion() {
+    localStorage.removeItem('nombreUsuario');
+    localStorage.removeItem('sesionActiva');
+    // Eliminar todas las respuestas guardadas del usuario actual
+    for (let key in localStorage) {
+        if (key.startsWith('respuesta_pregunta_')) {
+            localStorage.removeItem(key);
+        }
+    }
+    location.reload(); // Recargar la página para actualizar el estado
 }
 
-// Función para mostrar un mensaje de bienvenida personalizado
-function mostrarMensajeBienvenida(nombreUsuario) {
-    Swal.fire({
-        title: `¡Bienvenido, ${nombreUsuario}!`,
-        text: 'Nos alegra verte de nuevo. ¿Listo para continuar con el cuestionario?',
-        icon: 'info',
-        confirmButtonText: 'Comenzar'
-    });
-}
+
+
 
 
 // Función para obtener preguntas aleatorias de un array dado (DESHABILITADA POR EL MOMENTO)
@@ -123,7 +199,7 @@ function iniciarTemporizador(duracion, preguntas) {
                 icon: "info",
                 confirmButtonText: "Aceptar"
             }).then(() => {
-                // Después de que el usuario haga clic en "Aceptar", mostramos el resultado
+                // Después de que el usuario haga clic en "Aceptar", muestro el resultado
                 finalizarCuestionario(preguntas);
             });
 
@@ -157,24 +233,35 @@ function mostrarError(error){
 
 
 
-// Funcion para cargar el resultado anterior para mostrarle al usuario donde habia dejado todo
+
+// Funcion para cargar el resultado anterior para mostrarle al usuario donde habia dejado todo y fijarme si hay sesion activa
 function cargarResultadoPrevio() {
     const sesionActiva = localStorage.getItem('sesionActiva');
-    if (!sesionActiva) {
-        const resultadoPrevio = localStorage.getItem("resultado");
-        if (resultadoPrevio) {
-            const { respuestasCorrectas, cantidadTotalPreguntas, nivel } = JSON.parse(resultadoPrevio);
-            // mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas); //Innecesario mostrar el resultado cuando se carga nuevamente la página, es molesto
-            document.getElementById("nivel").value = nivel;
-        }
+    const nombreUsuario = localStorage.getItem('nombreUsuario');
+
+    if (sesionActiva && nombreUsuario) {
+        mostrarMensajeBienvenida(nombreUsuario);
+        // Iniciar el cuestionario si hay una sesión activa
+        darComienzo(); 
+    } else {
+        // Si no hay sesión activa, solicitar nombre de usuario
+        solicitarNombreUsuario();
     }
 }
 
 
 // Función que se llama cuando se inicia el cuestionario
 async function darComienzo() {
-    localStorage.clear(); // Limpio el localStorage antes de comenzar
+    // Limpiar respuestas guardadas del usuario anterior
+    for (let key in localStorage) {
+        if (key.startsWith('respuesta_pregunta_')) {
+            localStorage.removeItem(key);
+        }
+    }
+
+    // Solo marca la sesión como activa sin limpiar el localStorage
     localStorage.setItem('sesionActiva', 'true'); // Marca la sesión como activa
+
     let nivelSeleccionado = seleccionarDificultad();
     let preguntasPorNivel = await filtrarPreguntasPorDificultad(nivelSeleccionado);
 
@@ -188,12 +275,13 @@ async function darComienzo() {
     // preguntasFiltradas = mezclarPreguntas(preguntasFiltradas);  // Esta linea trae problemas a la hora de validar, porque me toma la pregunta bien pero la respuesta correcta la mezcla 
 
     mostrarPreguntas(preguntasFiltradas); 
+
+    //Muestro el boton una vez que se inicia el cuestionario
+    document.getElementById("btnCerrarSesion").style.display = "block";
     document.getElementById("mostrarResultadoBtn").style.display = "block"; 
 
     iniciarTemporizador(120, preguntasFiltradas); // Aca puedo configurar cuánto tiempo va a durar el temporizador 
-};
-
-
+}
 
 
 
@@ -236,7 +324,7 @@ async function cargarPreguntasPorNivel(nivel) {
 }
 
 
-// Función para filtrar y obtener preguntas de todos los niveles con 15 preguntas por nivel
+// Función para filtrar preguntas por dificultad
 async function filtrarPreguntasPorDificultad(nivelSeleccionado) {
     const niveles = ['facil', 'intermedio', 'dificil'];
     const preguntasFiltradas = {};
@@ -312,7 +400,7 @@ function mostrarPreguntas(preguntas) {
 };
 
 
-/*REHACIENDO LA FUNCION PORQUE NO VA BIEN.*/ 
+// Funcion para validar resupuestas del usuario con la respuesta correcta de la pregunta actual
 function validarRespuestas(preguntas) {
     let respuestasCorrectas = 0;
 
@@ -329,9 +417,9 @@ function validarRespuestas(preguntas) {
         }
 
         //CONTROL PARA LA DEPURACION 
-        console.log(`Pregunta ${index + 1}:`);
-        console.log(`Respuesta seleccionada: ${respuestaSeleccionada}`);
-        console.log(`Respuesta correcta: ${pregunta.respuestaCorrecta}`);
+        // console.log(`Pregunta ${index + 1}:`);
+        // console.log(`Respuesta seleccionada: ${respuestaSeleccionada}`);
+        // console.log(`Respuesta correcta: ${pregunta.respuestaCorrecta}`);
     
         const respuestaSeleccionadaNormalizada = respuestaSeleccionada.trim().toLowerCase();
         const respuestaCorrectaNormalizada = pregunta.respuestaCorrecta.trim().toLowerCase();
@@ -339,10 +427,10 @@ function validarRespuestas(preguntas) {
         if (respuestaSeleccionadaNormalizada === respuestaCorrectaNormalizada) {
             respuestasCorrectas++;
             //CONTROL PARA LA DEPURACION
-            console.log(`Validación exitosa para la pregunta ${index + 1}`);
+            // console.log(`Validación exitosa para la pregunta ${index + 1}`);
         } else {
             //CONTROL PARA LA DEPURACION
-            console.log(`Validación fallida para la pregunta ${index + 1}`);
+            // console.log(`Validación fallida para la pregunta ${index + 1}`);
         }
     
         // Guardar la respuesta seleccionada en localStorage

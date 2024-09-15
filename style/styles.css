@@ -296,3 +296,31 @@ button:disabled {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
     z-index: 1000;   /* Asegura que esté siempre arriba de otros elementos */
 }
+
+#botones-superior {
+    position: fixed; /* Fijar en la pantalla */
+    top: 10px; /* Margen superior */
+    left: 10px; /* Margen izquierdo */
+    display: flex;
+    gap: 10px; /* Separación entre botones */
+}
+
+#botones-superior button {
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Tamaño pequeño */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px; /* Fuente pequeña */
+    margin: 2px;
+    cursor: pointer;
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle un toque moderno */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+#botones-superior button:hover {
+    background-color: #45a049; /* Cambiar color al hacer hover */
+}
