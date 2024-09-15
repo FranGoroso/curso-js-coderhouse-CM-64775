@@ -7,7 +7,7 @@
       "c) Una estructura de datos que almacena elementos en una secuencia",
       "d) Un tipo de variable que almacena cadenas de texto"
     ],
-    "respuestaCorrecta": "c"
+    "respuestaCorrecta": "c) Una estructura de datos que almacena elementos en una secuencia"
   },
   {
     "pregunta": "¿Cuál es el resultado de 5 * 2 en JavaScript?",
@@ -17,7 +17,7 @@
       "c) Error",
       "d) 7"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) 10"
   },
   {
     "pregunta": "¿Qué operador se utiliza para asignar un valor a una variable en JavaScript?",
@@ -27,7 +27,7 @@
       "c) ===",
       "d) =>"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) ="
   },
   {
     "pregunta": "¿Qué significa CSS?",
@@ -37,7 +37,7 @@
       "c) Code Style Sheets",
       "d) Cascading Simple Sheets"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Cascading Style Sheets"
   },
   {
     "pregunta": "¿Qué método se utiliza para agregar un elemento al final de un array en JavaScript?",
@@ -47,7 +47,7 @@
       "c) unshift()",
       "d) shift()"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) push()"
   },
   {
     "pregunta": "¿Qué función se utiliza para mostrar un mensaje en la consola del navegador?",
@@ -57,7 +57,7 @@
       "c) alert()",
       "d) log()"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) console.log()"
   },
   {
     "pregunta": "¿Qué palabra clave se utiliza para declarar una constante en JavaScript?",
@@ -67,7 +67,7 @@
       "c) const",
       "d) constant"
     ],
-    "respuestaCorrecta": "c"
+    "respuestaCorrecta": "c) const"
   },
   {
     "pregunta": "¿Qué tipo de datos se utiliza para almacenar un valor verdadero o falso?",
@@ -77,7 +77,7 @@
       "c) Boolean",
       "d) Array"
     ],
-    "respuestaCorrecta": "c"
+    "respuestaCorrecta": "c) Boolean"
   },
   {
     "pregunta": "¿Qué método se utiliza para convertir una cadena de texto a un número entero en JavaScript?",
@@ -87,7 +87,7 @@
       "c) toInteger()",
       "d) Number()"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) parseInt()"
   },
   {
     "pregunta": "¿Cuál de los siguientes operadores se utiliza para concatenar dos cadenas de texto?",
@@ -97,7 +97,7 @@
       "c) .",
       "d) %"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) +"
   },
   {
     "pregunta": "¿Qué estructura de control se utiliza para tomar decisiones en JavaScript?",
@@ -107,7 +107,7 @@
       "c) switch-case",
       "d) while loop"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) if-else"
   },
   {
     "pregunta": "¿Qué palabra clave se utiliza para detener la ejecución de un bucle en JavaScript?",
@@ -117,7 +117,7 @@
       "c) halt",
       "d) exit"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) break"
   },
   {
     "pregunta": "¿Qué función se utiliza para obtener la longitud de una cadena de texto en JavaScript?",
@@ -127,7 +127,7 @@
       "c) count()",
       "d) length"
     ],
-    "respuestaCorrecta": "d"
+    "respuestaCorrecta": "d) length"
   },
   {
     "pregunta": "¿Qué método se utiliza para eliminar el último elemento de un array en JavaScript?",
@@ -137,7 +137,7 @@
       "c) remove()",
       "d) shift()"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) pop()"
   },
   {
     "pregunta": "¿Qué significa NaN en JavaScript?",
@@ -147,6 +147,406 @@
       "c) No Action Needed",
       "d) Null and Number"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Not a Number"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se utiliza para declarar una variable en JavaScript?",
+    "opciones": [
+      "a) var",
+      "b) let",
+      "c) const",
+      "d) Todas las anteriores"
+    ],
+    "respuestaCorrecta": "d) Todas las anteriores"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes valores es considerado falsy en JavaScript?",
+    "opciones": [
+      "a) 1",
+      "b) 'false'",
+      "c) 0",
+      "d) '0'"
+    ],
+    "respuestaCorrecta": "c) 0"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para obtener un elemento por su ID en el DOM?",
+    "opciones": [
+      "a) getElementById()",
+      "b) querySelector()",
+      "c) getElementsByClassName()",
+      "d) getElementByTag()"
+    ],
+    "respuestaCorrecta": "a) getElementById()"
+  },
+  {
+    "pregunta": "¿Qué operador se utiliza para comparar tanto valor como tipo de datos en JavaScript?",
+    "opciones": [
+      "a) ==",
+      "b) =",
+      "c) ===",
+      "d) !=="
+    ],
+    "respuestaCorrecta": "c) ==="
+  },
+  {
+    "pregunta": "¿Qué valor devuelve la función `typeof` cuando se aplica a una cadena de texto?",
+    "opciones": [
+      "a) string",
+      "b) text",
+      "c) object",
+      "d) char"
+    ],
+    "respuestaCorrecta": "a) string"
+  },
+  {
+    "pregunta": "¿Qué evento se utiliza para ejecutar código cuando se hace clic en un botón en JavaScript?",
+    "opciones": [
+      "a) onclick",
+      "b) onhover",
+      "c) onchange",
+      "d) onsubmit"
+    ],
+    "respuestaCorrecta": "a) onclick"
+  },
+  {
+    "pregunta": "¿Cuál es el valor predeterminado de una variable no inicializada en JavaScript?",
+    "opciones": [
+      "a) null",
+      "b) 0",
+      "c) undefined",
+      "d) NaN"
+    ],
+    "respuestaCorrecta": "c) undefined"
+  },
+  {
+    "pregunta": "¿Cómo se escribe un comentario de una sola línea en JavaScript?",
+    "opciones": [
+      "a) <!-- comentario -->",
+      "b) // comentario",
+      "c) /* comentario */",
+      "d) # comentario"
+    ],
+    "respuestaCorrecta": "b) // comentario"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para unir todos los elementos de un array en una sola cadena?",
+    "opciones": [
+      "a) join()",
+      "b) concat()",
+      "c) push()",
+      "d) slice()"
+    ],
+    "respuestaCorrecta": "a) join()"
+  },
+  {
+    "pregunta": "¿Qué función convierte una cadena en un número flotante en JavaScript?",
+    "opciones": [
+      "a) parseFloat()",
+      "b) parseInt()",
+      "c) toFloat()",
+      "d) float()"
+    ],
+    "respuestaCorrecta": "a) parseFloat()"
+  },
+  {
+    "pregunta": "¿Cómo se puede redondear un número decimal hacia abajo en JavaScript?",
+    "opciones": [
+      "a) Math.round()",
+      "b) Math.ceil()",
+      "c) Math.floor()",
+      "d) parseInt()"
+    ],
+    "respuestaCorrecta": "c) Math.floor()"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para verificar si un array incluye un determinado elemento?",
+    "opciones": [
+      "a) includes()",
+      "b) find()",
+      "c) indexOf()",
+      "d) filter()"
+    ],
+    "respuestaCorrecta": "a) includes()"
+  },
+  {
+    "pregunta": "¿Cómo se puede convertir un objeto JavaScript en una cadena JSON?",
+    "opciones": [
+      "a) JSON.parse()",
+      "b) JSON.stringify()",
+      "c) toString()",
+      "d) String()"
+    ],
+    "respuestaCorrecta": "b) JSON.stringify()"
+  },
+  {
+    "pregunta": "¿Cuál es el resultado de `typeof null` en JavaScript?",
+    "opciones": [
+      "a) null",
+      "b) object",
+      "c) undefined",
+      "d) boolean"
+    ],
+    "respuestaCorrecta": "b) object"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se usa para definir una función en JavaScript?",
+    "opciones": [
+      "a) def",
+      "b) function",
+      "c) func",
+      "d) method"
+    ],
+    "respuestaCorrecta": "b) function"
+  },
+  {
+    "pregunta": "¿Cómo puedes detener la propagación de un evento en JavaScript?",
+    "opciones": [
+      "a) event.preventDefault()",
+      "b) event.stopPropagation()",
+      "c) event.cancelBubble()",
+      "d) event.halt()"
+    ],
+    "respuestaCorrecta": "b) event.stopPropagation()"
+  },
+  {
+    "pregunta": "¿Qué operador se utiliza para verificar si dos valores son diferentes en JavaScript?",
+    "opciones": [
+      "a) ==",
+      "b) !=",
+      "c) ===",
+      "d) !=="
+    ],
+    "respuestaCorrecta": "d) !=="
+  },
+  {
+    "pregunta": "¿Qué función devuelve el valor más pequeño de una lista de números en JavaScript?",
+    "opciones": [
+      "a) Math.min()",
+      "b) Math.max()",
+      "c) Math.floor()",
+      "d) Math.abs()"
+    ],
+    "respuestaCorrecta": "a) Math.min()"
+  },
+  {
+    "pregunta": "¿Cómo puedes eliminar espacios en blanco al principio y al final de una cadena en JavaScript?",
+    "opciones": [
+      "a) trim()",
+      "b) slice()",
+      "c) replace()",
+      "d) cut()"
+    ],
+    "respuestaCorrecta": "a) trim()"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para ordenar los elementos de un array en JavaScript?",
+    "opciones": [
+      "a) sort()",
+      "b) order()",
+      "c) arrange()",
+      "d) organize()"
+    ],
+    "respuestaCorrecta": "a) sort()"
+  },
+  {
+    "pregunta": "¿Cómo se declara una variable en JavaScript que puede ser modificada posteriormente?",
+    "opciones": [
+      "a) const",
+      "b) let",
+      "c) var",
+      "d) static"
+    ],
+    "respuestaCorrecta": "b) let"
+  },
+  {
+    "pregunta": "¿Qué función se usa para evitar que el navegador recargue la página cuando se envía un formulario?",
+    "opciones": [
+      "a) preventDefault()",
+      "b) stopPropagation()",
+      "c) cancel()",
+      "d) halt()"
+    ],
+    "respuestaCorrecta": "a) preventDefault()"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes opciones es una forma correcta de crear un array en JavaScript?",
+    "opciones": [
+      "a) let arr = []",
+      "b) let arr = ()",
+      "c) let arr = {}",
+      "d) let arr = ||"
+    ],
+    "respuestaCorrecta": "a) let arr = []"
+  },
+  {
+    "pregunta": "¿Qué método de Array se usa para eliminar el primer elemento?",
+    "opciones": [
+      "a) shift()",
+      "b) pop()",
+      "c) unshift()",
+      "d) remove()"
+    ],
+    "respuestaCorrecta": "a) shift()"
+  },
+  {
+    "pregunta": "¿Cómo se accede al primer carácter de una cadena en JavaScript?",
+    "opciones": [
+      "a) string[0]",
+      "b) string.first()",
+      "c) string.charAt(1)",
+      "d) string.substring(0,1)"
+    ],
+    "respuestaCorrecta": "a) string[0]"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se utiliza para hacer que una función sea anónima en JavaScript?",
+    "opciones": [
+      "a) anonymous",
+      "b) function",
+      "c) const",
+      "d) arrow"
+    ],
+    "respuestaCorrecta": "d) arrow"
+  },
+  {
+    "pregunta": "¿Cómo se compara dos valores en JavaScript para verificar si son estrictamente iguales?",
+    "opciones": [
+      "a) ===",
+      "b) =",
+      "c) ==",
+      "d) =="
+    ],
+    "respuestaCorrecta": "a) ==="
+  },
+  {
+    "pregunta": "¿Qué propiedad se usa para obtener la longitud de un array en JavaScript?",
+    "opciones": [
+      "a) length",
+      "b) size",
+      "c) count",
+      "d) number"
+    ],
+    "respuestaCorrecta": "a) length"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para transformar una cadena de texto en minúsculas en JavaScript?",
+    "opciones": [
+      "a) toLowerCase()",
+      "b) toLower()",
+      "c) lowerCase()",
+      "d) downCase()"
+    ],
+    "respuestaCorrecta": "a) toLowerCase()"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes es un tipo de dato primitivo en JavaScript?",
+    "opciones": [
+      "a) Object",
+      "b) Array",
+      "c) Boolean",
+      "d) Function"
+    ],
+    "respuestaCorrecta": "c) Boolean"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se usa para definir una función en JavaScript?",
+    "opciones": [
+      "a) function",
+      "b) define",
+      "c) func",
+      "d) create"
+    ],
+    "respuestaCorrecta": "a) function"
+  },
+  {
+    "pregunta": "¿Qué función se usa para convertir una cadena en minúsculas en JavaScript?",
+    "opciones": [
+      "a) toLowerCase()",
+      "b) toUpperCase()",
+      "c) toLower()",
+      "d) lower()"
+    ],
+    "respuestaCorrecta": "a) toLowerCase()"
+  },
+  {
+    "pregunta": "¿Qué operador se usa para verificar si un valor no es igual a otro en JavaScript?",
+    "opciones": [
+      "a) !==",
+      "b) =!",
+      "c) !=",
+      "d) not="
+    ],
+    "respuestaCorrecta": "a) !=="
+  },
+  {
+    "pregunta": "¿Qué palabra clave se utiliza para definir una función anónima en JavaScript?",
+    "opciones": [
+      "a) function",
+      "b) arrow",
+      "c) lambda",
+      "d) def"
+    ],
+    "respuestaCorrecta": "b) arrow"
+  },
+  {
+    "pregunta": "¿Qué propiedad de una cadena devuelve el último carácter en JavaScript?",
+    "opciones": [
+      "a) string[string.length - 1]",
+      "b) string.last()",
+      "c) string.end()",
+      "d) string.charAt(-1)"
+    ],
+    "respuestaCorrecta": "a) string[string.length - 1]"
+  },
+  {
+    "pregunta": "¿Qué método se usa para añadir uno o más elementos al principio de un array en JavaScript?",
+    "opciones": [
+      "a) unshift()",
+      "b) push()",
+      "c) pop()",
+      "d) append()"
+    ],
+    "respuestaCorrecta": "a) unshift()"
+  },
+  {
+    "pregunta": "¿Qué método se usa para unir dos o más cadenas en JavaScript?",
+    "opciones": [
+      "a) concat()",
+      "b) merge()",
+      "c) join()",
+      "d) append()"
+    ],
+    "respuestaCorrecta": "a) concat()"
+  },
+  {
+    "pregunta": "¿Qué operador se usa para obtener el resto de una división en JavaScript?",
+    "opciones": [
+      "a) %",
+      "b) /",
+      "c) *",
+      "d) \\"
+    ],
+    "respuestaCorrecta": "a) %"
+  },
+  {
+    "pregunta": "¿Qué función de JavaScript permite obtener un número aleatorio entre 0 y 1?",
+    "opciones": [
+      "a) Math.random()",
+      "b) Math.randomize()",
+      "c) Math.getRandom()",
+      "d) Math.randomNumber()"
+    ],
+    "respuestaCorrecta": "a) Math.random()"
+  },
+  {
+    "pregunta": "¿Cuál es el resultado de la expresión '5' + 2 en JavaScript?",
+    "opciones": [
+      "a) 52",
+      "b) 7",
+      "c) '7'",
+      "d) '5' + '2'"
+    ],
+    "respuestaCorrecta": "a) 52"
   }
 ]

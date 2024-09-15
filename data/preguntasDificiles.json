@@ -7,7 +7,7 @@
       "c) Una función para detener la ejecución del código",
       "d) Una estructura de datos para manejar eventos"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Un bucle que permite que JavaScript maneje tareas asíncronas"
   },
   {
     "pregunta": "¿Qué es una closure en JavaScript?",
@@ -17,7 +17,7 @@
       "c) Un tipo de error en el código",
       "d) Una estructura de control para iterar sobre arrays"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Una función que recuerda el entorno en el que fue creada"
   },
   {
     "pregunta": "¿Qué hace el método bind() en JavaScript?",
@@ -27,7 +27,7 @@
       "c) Copia una función en otra variable",
       "d) Llama a una función con un objeto específico"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Asocia una función a un objeto específico"
   },
   {
     "pregunta": "¿Qué es la herencia prototipal en JavaScript?",
@@ -37,7 +37,7 @@
       "c) Un patrón de diseño para organizar código",
       "d) Una función que permite crear nuevos objetos"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Un modelo de herencia en el que los objetos pueden heredar propiedades y métodos directamente de otros objetos"
   },
   {
     "pregunta": "¿Qué método se utiliza para crear una promesa en JavaScript?",
@@ -47,7 +47,7 @@
       "c) makePromise()",
       "d) promise()"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) new Promise()"
   },
   {
     "pregunta": "¿Qué es una función de orden superior en JavaScript?",
@@ -57,7 +57,7 @@
       "c) Una función que solo se puede ejecutar una vez",
       "d) Una función que es llamada automáticamente al cargar la página"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Una función que puede tomar otras funciones como argumentos o devolver una función como resultado"
   },
   {
     "pregunta": "¿Qué hace el método reduce() en JavaScript?",
@@ -67,7 +67,7 @@
       "c) Filtra los elementos de un array según una condición",
       "d) Encuentra el primer elemento que cumple una condición"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Aplica una función a cada elemento de un array para reducirlo a un único valor"
   },
   {
     "pregunta": "¿Qué es el ámbito léxico en JavaScript?",
@@ -77,7 +77,7 @@
       "c) Una variable solo puede ser accedida dentro de la función en la que se define",
       "d) Una variable global puede ser accedida desde cualquier parte del código"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) El alcance de una variable está determinado por su ubicación dentro del código fuente"
   },
   {
     "pregunta": "¿Qué es el operador spread (...) en JavaScript?",
@@ -87,7 +87,7 @@
       "c) Un operador que crea una copia superficial de un objeto",
       "d) Un operador que intercambia los elementos de un array"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Un operador que expande un array o un objeto en sus elementos individuales"
   },
   {
     "pregunta": "¿Qué hace el método finally() en una promesa de JavaScript?",
@@ -97,6 +97,386 @@
       "c) Rechaza una promesa",
       "d) Cancela una promesa"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Se ejecuta siempre al final de una promesa, independientemente de si se resolvió o rechazó"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Object.freeze()` en JavaScript?",
+    "opciones": [
+      "a) Hace que un objeto no pueda ser modificado",
+      "b) Elimina todas las propiedades de un objeto",
+      "c) Convierte un objeto en un array",
+      "d) Ordena las propiedades de un objeto"
+    ],
+    "respuestaCorrecta": "a) Hace que un objeto no pueda ser modificado"
+  },
+  {
+    "pregunta": "¿Cuál es la diferencia entre `setTimeout` y `setInterval` en JavaScript?",
+    "opciones": [
+      "a) `setTimeout` ejecuta una función una vez, `setInterval` la ejecuta repetidamente en intervalos",
+      "b) `setTimeout` ejecuta una función inmediatamente, `setInterval` la retrasa",
+      "c) `setTimeout` cancela una función, `setInterval` la reintenta",
+      "d) No hay diferencia entre ellos"
+    ],
+    "respuestaCorrecta": "a) `setTimeout` ejecuta una función una vez, `setInterval` la ejecuta repetidamente en intervalos"
+  },
+  {
+    "pregunta": "¿Qué es un 'generator' en JavaScript?",
+    "opciones": [
+      "a) Una función que puede detener su ejecución y luego reanudarla",
+      "b) Una función que se ejecuta indefinidamente",
+      "c) Una función que siempre devuelve un array",
+      "d) Un método para iterar sobre objetos"
+    ],
+    "respuestaCorrecta": "a) Una función que puede detener su ejecución y luego reanudarla"
+  },
+  {
+    "pregunta": "¿Cuál es el propósito de `async` y `await` en JavaScript?",
+    "opciones": [
+      "a) Manejar operaciones asincrónicas de manera más sencilla y legible",
+      "b) Ejecutar código de forma paralela",
+      "c) Bloquear el hilo principal",
+      "d) Crear promesas automáticamente"
+    ],
+    "respuestaCorrecta": "a) Manejar operaciones asincrónicas de manera más sencilla y legible"
+  },
+  {
+    "pregunta": "¿Qué es el 'callback hell' en JavaScript?",
+    "opciones": [
+      "a) Una situación donde los callbacks están anidados profundamente, haciendo el código difícil de leer y mantener",
+      "b) Un tipo de error en las funciones callback",
+      "c) Un ciclo infinito de llamadas recursivas",
+      "d) Un error cuando se utiliza `async/await` de manera incorrecta"
+    ],
+    "respuestaCorrecta": "a) Una situación donde los callbacks están anidados profundamente, haciendo el código difícil de leer y mantener"
+  },
+  {
+    "pregunta": "¿Cuál es el propósito de `Reflect` en JavaScript?",
+    "opciones": [
+      "a) Proporcionar métodos para interceptar las operaciones fundamentales de los objetos",
+      "b) Crear nuevos tipos de objetos",
+      "c) Manipular el DOM de manera más eficiente",
+      "d) Crear objetos inmutables"
+    ],
+    "respuestaCorrecta": "a) Proporcionar métodos para interceptar las operaciones fundamentales de los objetos"
+  },
+  {
+    "pregunta": "¿Qué es una 'promise chain' en JavaScript?",
+    "opciones": [
+      "a) Un patrón para manejar promesas en serie, pasando el resultado de una promesa a la siguiente",
+      "b) Ejecutar promesas en paralelo",
+      "c) Cancelar múltiples promesas a la vez",
+      "d) Agrupar varias promesas en una sola"
+    ],
+    "respuestaCorrecta": "a) Un patrón para manejar promesas en serie, pasando el resultado de una promesa a la siguiente"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Proxy` en JavaScript?",
+    "opciones": [
+      "a) Permite interceptar y redefinir operaciones fundamentales en objetos",
+      "b) Clona un objeto y sus propiedades",
+      "c) Convierte un objeto en un array",
+      "d) Facilita la manipulación del DOM"
+    ],
+    "respuestaCorrecta": "a) Permite interceptar y redefinir operaciones fundamentales en objetos"
+  },
+  {
+    "pregunta": "¿Cuál es la diferencia entre `null` y `undefined` en JavaScript?",
+    "opciones": [
+      "a) `undefined` es el valor por defecto de una variable no inicializada, mientras que `null` es un valor asignado manualmente que representa la ausencia de valor",
+      "b) No hay diferencia, ambos representan la ausencia de valor",
+      "c) `null` es una palabra reservada y `undefined` no",
+      "d) `undefined` es un tipo de objeto, mientras que `null` es un tipo de dato primitivo"
+    ],
+    "respuestaCorrecta": "a) `undefined` es el valor por defecto de una variable no inicializada, mientras que `null` es un valor asignado manualmente que representa la ausencia de valor"
+  },
+  {
+    "pregunta": "¿Qué es la técnica de memoization en JavaScript?",
+    "opciones": [
+      "a) Una técnica para almacenar el resultado de funciones costosas y reutilizarlo",
+      "b) Un método para limpiar la memoria en JavaScript",
+      "c) Un patrón para ordenar objetos en memoria",
+      "d) Una función para ejecutar código de manera concurrente"
+    ],
+    "respuestaCorrecta": "a) Una técnica para almacenar el resultado de funciones costosas y reutilizarlo"
+  },
+  {
+    "pregunta": "¿Cuál es el propósito de `Object.defineProperty()` en JavaScript?",
+    "opciones": [
+      "a) Definir una nueva propiedad en un objeto con características específicas",
+      "b) Eliminar una propiedad de un objeto",
+      "c) Crear un nuevo objeto a partir de un prototipo",
+      "d) Convertir un objeto en un array"
+    ],
+    "respuestaCorrecta": "a) Definir una nueva propiedad en un objeto con características específicas"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Function.prototype.apply()` en JavaScript?",
+    "opciones": [
+      "a) Llama a una función con un valor `this` y argumentos proporcionados en forma de array",
+      "b) Llama a una función sin argumentos",
+      "c) Copia una función y la asigna a otro objeto",
+      "d) Hace que una función se ejecute en segundo plano"
+    ],
+    "respuestaCorrecta": "a) Llama a una función con un valor `this` y argumentos proporcionados en forma de array"
+  },
+  {
+    "pregunta": "¿Qué es el 'hoisting' en JavaScript?",
+    "opciones": [
+      "a) El comportamiento por el cual las declaraciones de variables y funciones se mueven al inicio de su contexto de ejecución",
+      "b) El proceso de mover funciones de un archivo a otro",
+      "c) La ejecución paralela de funciones asíncronas",
+      "d) Un método para limpiar variables globales"
+    ],
+    "respuestaCorrecta": "a) El comportamiento por el cual las declaraciones de variables y funciones se mueven al inicio de su contexto de ejecución"
+  },
+  {
+    "pregunta": "¿Qué diferencia hay entre `call()` y `apply()` en JavaScript?",
+    "opciones": [
+      "a) `call()` acepta una lista de argumentos, mientras que `apply()` acepta un array de argumentos",
+      "b) `call()` es asíncrono y `apply()` es síncrono",
+      "c) `apply()` es más rápido que `call()`",
+      "d) `call()` solo funciona con funciones anónimas"
+    ],
+    "respuestaCorrecta": "a) `call()` acepta una lista de argumentos, mientras que `apply()` acepta un array de argumentos"
+  },
+  {
+    "pregunta": "¿Qué es el patrón de diseño 'singleton' en JavaScript?",
+    "opciones": [
+      "a) Un patrón que restringe la instanciación de una clase a un solo objeto",
+      "b) Un patrón que permite la creación de múltiples instancias de un objeto",
+      "c) Un patrón que se utiliza para crear objetos inmutables",
+      "d) Un patrón que permite crear nuevas funciones automáticamente"
+    ],
+    "respuestaCorrecta": "a) Un patrón que restringe la instanciación de una clase a un solo objeto"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Object.assign()` en JavaScript?",
+    "opciones": [
+      "a) Copia todas las propiedades enumerables de uno o más objetos fuente a un objeto destino",
+      "b) Elimina las propiedades de un objeto",
+      "c) Crea un nuevo objeto a partir de un prototipo",
+      "d) Ordena las propiedades de un objeto alfabéticamente"
+    ],
+    "respuestaCorrecta": "a) Copia todas las propiedades enumerables de uno o más objetos fuente a un objeto destino"
+  },
+  {
+    "pregunta": "¿Qué es la recursión en JavaScript?",
+    "opciones": [
+      "a) Una función que se llama a sí misma",
+      "b) Un bucle que se repite indefinidamente",
+      "c) Un método para crear objetos complejos",
+      "d) Un tipo de estructura de datos"
+    ],
+    "respuestaCorrecta": "a) Una función que se llama a sí misma"
+  },
+  {
+    "pregunta": "¿Qué es el concepto de 'pila de llamadas' en JavaScript?",
+    "opciones": [
+      "a) La estructura de datos que gestiona el orden de ejecución de las funciones",
+      "b) Una lista de eventos en espera de ser ejecutados",
+      "c) Un método para sincronizar funciones asíncronas",
+      "d) Un patrón de diseño para manejar errores"
+    ],
+    "respuestaCorrecta": "a) La estructura de datos que gestiona el orden de ejecución de las funciones"
+  },
+  {
+    "pregunta": "¿Qué es un 'WeakMap' en JavaScript?",
+    "opciones": [
+      "a) Un objeto donde las claves deben ser objetos y no evita que los objetos sean recolectados por el recolector de basura",
+      "b) Un mapa que solo puede contener valores numéricos",
+      "c) Un objeto que permite claves duplicadas",
+      "d) Un tipo de array que almacena pares clave-valor"
+    ],
+    "respuestaCorrecta": "a) Un objeto donde las claves deben ser objetos y no evita que los objetos sean recolectados por el recolector de basura"
+  },
+  {
+    "pregunta": "¿Qué es el 'prototype chaining' en JavaScript?",
+    "opciones": [
+      "a) Un mecanismo que permite a los objetos heredar propiedades y métodos de otros objetos a través de la cadena de prototipos",
+      "b) Un método para encadenar promesas",
+      "c) Una técnica para combinar múltiples prototipos en un solo objeto",
+      "d) Un patrón de diseño para manejar eventos"
+    ],
+    "respuestaCorrecta": "a) Un mecanismo que permite a los objetos heredar propiedades y métodos de otros objetos a través de la cadena de prototipos"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Object.create()` en JavaScript?",
+    "opciones": [
+      "a) Crea un nuevo objeto con el prototipo especificado",
+      "b) Clona un objeto existente",
+      "c) Modifica el prototipo de un objeto existente",
+      "d) Elimina el prototipo de un objeto"
+    ],
+    "respuestaCorrecta": "a) Crea un nuevo objeto con el prototipo especificado"
+  },
+  {
+    "pregunta": "¿Cómo se crea un generador en JavaScript?",
+    "opciones": [
+      "a) Utilizando la sintaxis de función generadora con `function*`",
+      "b) Usando el método `createGenerator()`",
+      "c) Implementando una clase con métodos iteradores",
+      "d) Aplicando el patrón de diseño de iteradores manualmente"
+    ],
+    "respuestaCorrecta": "a) Utilizando la sintaxis de función generadora con `function*`"
+  },
+  {
+    "pregunta": "¿Qué es el 'shadow DOM' en JavaScript?",
+    "opciones": [
+      "a) Una técnica para encapsular el estilo y la estructura de un componente web",
+      "b) Un método para crear elementos de DOM invisibles",
+      "c) Una función para copiar el DOM de un documento a otro",
+      "d) Un patrón para gestionar eventos de manera eficiente"
+    ],
+    "respuestaCorrecta": "a) Una técnica para encapsular el estilo y la estructura de un componente web"
+  },
+  {
+    "pregunta": "¿Qué diferencia existe entre `null` y `undefined` en JavaScript?",
+    "opciones": [
+      "a) `null` es un valor asignado explícitamente, mientras que `undefined` es el valor por defecto para variables no inicializadas",
+      "b) `null` es un tipo de dato, mientras que `undefined` es una función",
+      "c) Ambos son equivalentes y se pueden usar de manera intercambiable",
+      "d) `null` se utiliza para objetos, mientras que `undefined` solo para arrays"
+    ],
+    "respuestaCorrecta": "a) `null` es un valor asignado explícitamente, mientras que `undefined` es el valor por defecto para variables no inicializadas"
+  },
+  {
+    "pregunta": "¿Qué es la técnica de 'currying' en JavaScript?",
+    "opciones": [
+      "a) Un patrón que transforma una función que toma múltiples argumentos en una serie de funciones que toman un solo argumento",
+      "b) Un método para optimizar la ejecución de funciones en bucles",
+      "c) Una técnica para combinar múltiples funciones en una sola",
+      "d) Un patrón de diseño para manipular objetos inmutables"
+    ],
+    "respuestaCorrecta": "a) Un patrón que transforma una función que toma múltiples argumentos en una serie de funciones que toman un solo argumento"
+  },
+  {
+    "pregunta": "¿Qué es un 'WeakSet' en JavaScript?",
+    "opciones": [
+      "a) Un conjunto en el que las claves son objetos y no se evita que los objetos sean recolectados por el recolector de basura",
+      "b) Un tipo de conjunto que permite claves duplicadas",
+      "c) Un conjunto que solo acepta valores primitivos",
+      "d) Un objeto que actúa como un mapa con valores únicos"
+    ],
+    "respuestaCorrecta": "a) Un conjunto en el que las claves son objetos y no se evita que los objetos sean recolectados por el recolector de basura"
+  },
+  {
+    "pregunta": "¿Qué es el 'Symbol' en JavaScript y para qué se utiliza?",
+    "opciones": [
+      "a) Un tipo de dato primitivo único e inmutable utilizado como identificador de propiedades de objetos",
+      "b) Un método para generar números aleatorios",
+      "c) Una función para crear nuevos tipos de datos",
+      "d) Un objeto que encapsula valores primitivos"
+    ],
+    "respuestaCorrecta": "a) Un tipo de dato primitivo único e inmutable utilizado como identificador de propiedades de objetos"
+  },
+  {
+    "pregunta": "¿Qué es el 'Reflect' en JavaScript?",
+    "opciones": [
+      "a) Un objeto que proporciona métodos para realizar operaciones en objetos de manera más transparente",
+      "b) Un método para crear instancias de objetos",
+      "c) Un patrón para manejar errores en funciones asíncronas",
+      "d) Una técnica para clonar objetos profundos"
+    ],
+    "respuestaCorrecta": "a) Un objeto que proporciona métodos para realizar operaciones en objetos de manera más transparente"
+  },
+  {
+    "pregunta": "¿Qué es el 'Hoisting' en JavaScript?",
+    "opciones": [
+      "a) El proceso en el que las declaraciones de variables y funciones se mueven al inicio de su contexto de ejecución",
+      "b) Un método para elevar elementos en el DOM",
+      "c) Una técnica para optimizar el rendimiento del código",
+      "d) Un patrón para manejar funciones asíncronas"
+    ],
+    "respuestaCorrecta": "a) El proceso en el que las declaraciones de variables y funciones se mueven al inicio de su contexto de ejecución"
+  },
+  {
+    "pregunta": "¿Qué es un 'Proxy' en JavaScript?",
+    "opciones": [
+      "a) Un objeto que permite interceptar y redefinir operaciones básicas realizadas en otro objeto",
+      "b) Un método para crear nuevas instancias de objetos",
+      "c) Una función para manejar errores en operaciones asíncronas",
+      "d) Un patrón para optimizar el rendimiento de la red"
+    ],
+    "respuestaCorrecta": "a) Un objeto que permite interceptar y redefinir operaciones básicas realizadas en otro objeto"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Object.freeze()` en JavaScript?",
+    "opciones": [
+      "a) Previene que un objeto sea modificado, haciendo que sus propiedades sean inmutables",
+      "b) Congela un array para evitar cambios en su contenido",
+      "c) Limpia todas las propiedades de un objeto",
+      "d) Duplica un objeto sin modificar el original"
+    ],
+    "respuestaCorrecta": "a) Previene que un objeto sea modificado, haciendo que sus propiedades sean inmutables"
+  },
+  {
+    "pregunta": "¿Qué es la 'recursión' en JavaScript?",
+    "opciones": [
+      "a) Una técnica en la que una función se llama a sí misma para resolver problemas complejos",
+      "b) Un método para iterar sobre arrays",
+      "c) Una técnica para combinar múltiples funciones en una sola",
+      "d) Un patrón para manejar eventos asincrónicos"
+    ],
+    "respuestaCorrecta": "a) Una técnica en la que una función se llama a sí misma para resolver problemas complejos"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Object.assign()` en JavaScript?",
+    "opciones": [
+      "a) Copia las propiedades de uno o más objetos a un objeto destino",
+      "b) Asigna valores predeterminados a un objeto",
+      "c) Crea una instancia de un objeto a partir de una clase",
+      "d) Modifica las propiedades de un objeto existente"
+    ],
+    "respuestaCorrecta": "a) Copia las propiedades de uno o más objetos a un objeto destino"
+  },
+  {
+    "pregunta": "¿Qué es un 'Event Delegation' en JavaScript?",
+    "opciones": [
+      "a) Un patrón que permite manejar eventos en elementos descendientes utilizando un solo manejador en un ancestro común",
+      "b) Un método para crear nuevos eventos personalizados",
+      "c) Una técnica para delegar tareas entre diferentes funciones",
+      "d) Un patrón para optimizar la ejecución de eventos en el DOM"
+    ],
+    "respuestaCorrecta": "a) Un patrón que permite manejar eventos en elementos descendientes utilizando un solo manejador en un ancestro común"
+  },
+  {
+    "pregunta": "¿Cómo se utiliza el método `Reflect.apply()` en JavaScript?",
+    "opciones": [
+      "a) Permite invocar una función con un objeto de contexto específico y argumentos",
+      "b) Crea una nueva instancia de una función",
+      "c) Asocia una función a un objeto específico",
+      "d) Reemplaza una función existente en un objeto"
+    ],
+    "respuestaCorrecta": "a) Permite invocar una función con un objeto de contexto específico y argumentos"
+  },
+  {
+    "pregunta": "¿Qué es una 'IIFE' en JavaScript?",
+    "opciones": [
+      "a) Una expresión de función autoejecutable que se invoca inmediatamente después de su definición",
+      "b) Una técnica para inicializar variables globales",
+      "c) Un método para crear funciones anónimas",
+      "d) Un patrón para modularizar código en JavaScript"
+    ],
+    "respuestaCorrecta": "a) Una expresión de función autoejecutable que se invoca inmediatamente después de su definición"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Promise.all()` en JavaScript?",
+    "opciones": [
+      "a) Permite ejecutar múltiples promesas en paralelo y espera a que todas se resuelvan o se rechacen",
+      "b) Combina los resultados de múltiples promesas en una sola",
+      "c) Ejecuta promesas secuencialmente, una tras otra",
+      "d) Resuelve la primera promesa que se completa, ignorando las demás"
+    ],
+    "respuestaCorrecta": "a) Permite ejecutar múltiples promesas en paralelo y espera a que todas se resuelvan o se rechacen"
+  },
+  {
+    "pregunta": "¿Qué es un 'WeakMap' en JavaScript?",
+    "opciones": [
+      "a) Un mapa en el que las claves son objetos y no se evita que los objetos sean recolectados por el recolector de basura",
+      "b) Un tipo de colección que permite claves primarias y valores secundarios",
+      "c) Un objeto que actúa como un mapa con claves y valores débiles",
+      "d) Un mapa que solo acepta valores primitivos como claves"
+    ],
+    "respuestaCorrecta": "a) Un mapa en el que las claves son objetos y no se evita que los objetos sean recolectados por el recolector de basura"
   }
 ]

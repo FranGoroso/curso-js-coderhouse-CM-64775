@@ -7,7 +7,7 @@
       "c) Definir una función",
       "d) Ordenar un array"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) Ejecutar un bloque de código mientras una condición es verdadera"
   },
   {
     "pregunta": "¿Qué hace el método Array.prototype.map() en JavaScript?",
@@ -17,7 +17,7 @@
       "c) Filtra los elementos de un array según una condición",
       "d) Encuentra un elemento en un array"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) Crea un nuevo array con los resultados de aplicar una función a cada elemento del array original"
   },
   {
     "pregunta": "¿Qué significa la palabra clave this en JavaScript?",
@@ -27,7 +27,7 @@
       "c) Hace referencia a una variable local",
       "d) No tiene ningún significado especial"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) Hace referencia al objeto que está llamando al método"
   },
   {
     "pregunta": "¿Qué método se utiliza para agregar uno o más elementos al inicio de un array en JavaScript?",
@@ -37,7 +37,7 @@
       "c) unshift()",
       "d) shift()"
     ],
-    "respuestaCorrecta": "c"
+    "respuestaCorrecta": "c) unshift()"
   },
   {
     "pregunta": "¿Qué función se utiliza para convertir un objeto en una cadena JSON en JavaScript?",
@@ -47,7 +47,7 @@
       "c) toString()",
       "d) stringify()"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) JSON.stringify()"
   },
   {
     "pregunta": "¿Qué método se utiliza para ordenar los elementos de un array en JavaScript?",
@@ -57,7 +57,7 @@
       "c) arrange()",
       "d) map()"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) sort()"
   },
   {
     "pregunta": "¿Cuál es la diferencia entre == y === en JavaScript?",
@@ -67,7 +67,7 @@
       "c) Ambos son iguales, no hay diferencia",
       "d) == compara solo cadenas, === compara solo números"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) == compara solo valores, === compara valores y tipos"
   },
   {
     "pregunta": "¿Qué es una función anónima en JavaScript?",
@@ -77,7 +77,7 @@
       "c) Una función que se ejecuta automáticamente",
       "d) Una función que devuelve un valor nulo"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Una función sin nombre"
   },
   {
     "pregunta": "¿Qué hace el operador typeof en JavaScript?",
@@ -87,7 +87,7 @@
       "c) Convierte una variable a un tipo específico",
       "d) Crea una nueva variable"
     ],
-    "respuestaCorrecta": "b"
+    "respuestaCorrecta": "b) Devuelve el tipo de dato de una variable"
   },
   {
     "pregunta": "¿Qué es el objeto Math en JavaScript?",
@@ -97,6 +97,306 @@
       "c) Un objeto para manipular arrays",
       "d) Un objeto para trabajar con fechas"
     ],
-    "respuestaCorrecta": "a"
+    "respuestaCorrecta": "a) Un objeto para realizar operaciones matemáticas"
+  },
+  {
+    "pregunta": "¿Qué es una promesa en JavaScript?",
+    "opciones": [
+      "a) Una función especial",
+      "b) Un objeto que representa la eventual finalización o falla de una operación asincrónica",
+      "c) Una estructura de control de flujo",
+      "d) Un método para manipular arrays"
+    ],
+    "respuestaCorrecta": "b) Un objeto que representa la eventual finalización o falla de una operación asincrónica"
+  },
+  {
+    "pregunta": "¿Qué método se utiliza para combinar dos o más arrays en JavaScript?",
+    "opciones": [
+      "a) concat()",
+      "b) merge()",
+      "c) join()",
+      "d) union()"
+    ],
+    "respuestaCorrecta": "a) concat()"
+  },
+  {
+    "pregunta": "¿Cuál es el resultado de la expresión `typeof null` en JavaScript?",
+    "opciones": [
+      "a) 'null'",
+      "b) 'object'",
+      "c) 'undefined'",
+      "d) 'boolean'"
+    ],
+    "respuestaCorrecta": "b) 'object'"
+  },
+  {
+    "pregunta": "¿Qué es el 'scope' en JavaScript?",
+    "opciones": [
+      "a) El lugar donde se ejecuta el código",
+      "b) El contexto en el que se ejecutan las variables y funciones",
+      "c) La sintaxis utilizada para definir variables",
+      "d) El entorno donde se guardan los módulos"
+    ],
+    "respuestaCorrecta": "b) El contexto en el que se ejecutan las variables y funciones"
+  },
+  {
+    "pregunta": "¿Cuál de las siguientes no es una palabra reservada en JavaScript?",
+    "opciones": [
+      "a) const",
+      "b) var",
+      "c) let",
+      "d) value"
+    ],
+    "respuestaCorrecta": "d) value"
+  },
+  {
+    "pregunta": "¿Qué es el 'hoisting' en JavaScript?",
+    "opciones": [
+      "a) El proceso de asignar variables",
+      "b) El comportamiento de mover declaraciones al inicio de su contexto durante la ejecución",
+      "c) La creación de funciones dentro de otras funciones",
+      "d) La ejecución de código asíncrono"
+    ],
+    "respuestaCorrecta": "b) El comportamiento de mover declaraciones al inicio de su contexto durante la ejecución"
+  },
+  {
+    "pregunta": "¿Qué método se usa para encontrar el índice de un elemento en un array?",
+    "opciones": [
+      "a) findIndex()",
+      "b) indexOf()",
+      "c) search()",
+      "d) locate()"
+    ],
+    "respuestaCorrecta": "b) indexOf()"
+  },
+  {
+    "pregunta": "¿Qué es un 'callback' en JavaScript?",
+    "opciones": [
+      "a) Una función que se pasa como argumento a otra función y se ejecuta después de que esta última termina",
+      "b) Una función que se ejecuta automáticamente",
+      "c) Un tipo de bucle",
+      "d) Un objeto que almacena funciones"
+    ],
+    "respuestaCorrecta": "a) Una función que se pasa como argumento a otra función y se ejecuta después de que esta última termina"
+  },
+  {
+    "pregunta": "¿Qué significa el término 'event bubbling' en JavaScript?",
+    "opciones": [
+      "a) El proceso en el que un evento se propaga desde el elemento más específico al más general",
+      "b) El comportamiento de detener la ejecución de un evento",
+      "c) Un método para agregar eventos a elementos del DOM",
+      "d) Un patrón para manejar eventos de manera síncrona"
+    ],
+    "respuestaCorrecta": "a) El proceso en el que un evento se propaga desde el elemento más específico al más general"
+  },
+  {
+    "pregunta": "¿Qué operador lógico se utiliza para verificar si ambas condiciones son verdaderas en JavaScript?",
+    "opciones": [
+      "a) &&",
+      "b) ||",
+      "c) ??",
+      "d) !="
+    ],
+    "respuestaCorrecta": "a) &&"
+  },
+  {
+    "pregunta": "¿Qué hace el método `reduce()` en un array de JavaScript?",
+    "opciones": [
+      "a) Aplica una función a cada elemento del array para reducirlo a un solo valor",
+      "b) Filtra los elementos del array",
+      "c) Ordena los elementos de un array",
+      "d) Encuentra el primer elemento que cumple una condición"
+    ],
+    "respuestaCorrecta": "a) Aplica una función a cada elemento del array para reducirlo a un solo valor"
+  },
+  {
+    "pregunta": "¿Qué es una 'closure' en JavaScript?",
+    "opciones": [
+      "a) Un bucle infinito",
+      "b) Una función que recuerda el entorno en el que se creó, incluso después de que ese entorno haya terminado",
+      "c) Un método para declarar variables",
+      "d) Un tipo especial de variable"
+    ],
+    "respuestaCorrecta": "b) Una función que recuerda el entorno en el que se creó, incluso después de que ese entorno haya terminado"
+  },
+  {
+    "pregunta": "¿Cómo se declara una función de flecha en JavaScript?",
+    "opciones": [
+      "a) function myFunction() {}",
+      "b) (param) => {}",
+      "c) myFunction => ()",
+      "d) () -> {}"
+    ],
+    "respuestaCorrecta": "b) (param) => {}"
+  },
+  {
+    "pregunta": "¿Qué hace el método `filter()` en un array?",
+    "opciones": [
+      "a) Modifica el array original",
+      "b) Crea un nuevo array con todos los elementos que cumplen una condición",
+      "c) Itera sobre cada elemento del array",
+      "d) Devuelve el índice del primer elemento que cumple una condición"
+    ],
+    "respuestaCorrecta": "b) Crea un nuevo array con todos los elementos que cumplen una condición"
+  },
+  {
+    "pregunta": "¿Qué valor devuelve una función sin la instrucción `return` en JavaScript?",
+    "opciones": [
+      "a) undefined",
+      "b) null",
+      "c) 0",
+      "d) false"
+    ],
+    "respuestaCorrecta": "a) undefined"
+  },
+  {
+    "pregunta": "¿Qué palabra clave se utiliza para manejar errores en JavaScript?",
+    "opciones": [
+      "a) catch",
+      "b) try",
+      "c) error",
+      "d) throw"
+    ],
+    "respuestaCorrecta": "b) try"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Object.keys()` en JavaScript?",
+    "opciones": [
+      "a) Devuelve un array con los valores de un objeto",
+      "b) Devuelve un array con las claves (keys) de un objeto",
+      "c) Modifica el objeto original",
+      "d) Filtra las propiedades de un objeto"
+    ],
+    "respuestaCorrecta": "b) Devuelve un array con las claves (keys) de un objeto"
+  },
+  {
+    "pregunta": "¿Qué diferencia hay entre `null` y `undefined` en JavaScript?",
+    "opciones": [
+      "a) `undefined` es un valor asignado a variables no definidas, y `null` es un valor vacío intencionado",
+      "b) `undefined` es un objeto, y `null` es una cadena vacía",
+      "c) No hay diferencia",
+      "d) `undefined` es un valor asignado a variables definidas, y `null` es un valor automático"
+    ],
+    "respuestaCorrecta": "a) `undefined` es un valor asignado a variables no definidas, y `null` es un valor vacío intencionado"
+  },
+  {
+    "pregunta": "¿Qué se necesita para trabajar con promesas encadenadas en JavaScript?",
+    "opciones": [
+      "a) Llamar al método `catch()`",
+      "b) Usar el método `then()` para cada paso de la promesa",
+      "c) Utilizar callbacks anidados",
+      "d) Usar `try-catch`"
+    ],
+    "respuestaCorrecta": "b) Usar el método `then()` para cada paso de la promesa"
+  },
+  {
+    "pregunta": "¿Qué hace el operador `...` (spread) en JavaScript?",
+    "opciones": [
+      "a) Combina varios arrays en uno solo",
+      "b) Expande los elementos de un array u objeto en otro contexto",
+      "c) Filtra los elementos de un array",
+      "d) Repite los valores de un array"
+    ],
+    "respuestaCorrecta": "b) Expande los elementos de un array u objeto en otro contexto"
+  },
+  {
+    "pregunta": "¿Qué hace el método `find()` en un array de JavaScript?",
+    "opciones": [
+      "a) Devuelve el índice del primer elemento que cumple una condición",
+      "b) Modifica el array original",
+      "c) Devuelve el primer elemento que cumple una condición",
+      "d) Devuelve todos los elementos que cumplen una condición"
+    ],
+    "respuestaCorrecta": "c) Devuelve el primer elemento que cumple una condición"
+  },
+  {
+    "pregunta": "¿Qué significa el término 'hoisting' en JavaScript?",
+    "opciones": [
+      "a) El proceso por el cual las variables y funciones son 'levantadas' al principio de su contexto de ejecución",
+      "b) La creación de nuevas instancias de objetos",
+      "c) La ejecución secuencial de funciones",
+      "d) El proceso de enlazar eventos a elementos del DOM"
+    ],
+    "respuestaCorrecta": "a) El proceso por el cual las variables y funciones son 'levantadas' al principio de su contexto de ejecución"
+  },
+  {
+    "pregunta": "¿Qué devuelve el método `Array.prototype.every()` en JavaScript?",
+    "opciones": [
+      "a) `true` si al menos un elemento del array cumple con la condición",
+      "b) `true` si todos los elementos del array cumplen con la condición",
+      "c) `false` si ningún elemento cumple con la condición",
+      "d) Un nuevo array con los elementos que cumplen la condición"
+    ],
+    "respuestaCorrecta": "b) `true` si todos los elementos del array cumplen con la condición"
+  },
+  {
+    "pregunta": "¿Qué hace el método `includes()` en un array de JavaScript?",
+    "opciones": [
+      "a) Devuelve `true` si el array contiene un valor específico",
+      "b) Devuelve `false` si el array contiene un valor específico",
+      "c) Filtra los elementos del array",
+      "d) Elimina un valor específico del array"
+    ],
+    "respuestaCorrecta": "a) Devuelve `true` si el array contiene un valor específico"
+  },
+  {
+    "pregunta": "¿Qué es una 'promesa' en JavaScript?",
+    "opciones": [
+      "a) Una estructura de control que permite bucles",
+      "b) Un objeto que representa la eventual finalización o fallo de una operación asincrónica",
+      "c) Una función que devuelve siempre un valor booleano",
+      "d) Una función que retorna múltiples valores"
+    ],
+    "respuestaCorrecta": "b) Un objeto que representa la eventual finalización o fallo de una operación asincrónica"
+  },
+  {
+    "pregunta": "¿Cuál es el propósito del método `Object.assign()` en JavaScript?",
+    "opciones": [
+      "a) Clonar un objeto",
+      "b) Comparar dos objetos",
+      "c) Asignar un valor a una propiedad de un objeto",
+      "d) Combinar múltiples objetos en uno solo"
+    ],
+    "respuestaCorrecta": "d) Combinar múltiples objetos en uno solo"
+  },
+  {
+    "pregunta": "¿Cuál de los siguientes es un ejemplo de una IIFE (Immediately Invoked Function Expression)?",
+    "opciones": [
+      "a) (function() {})()",
+      "b) function myFunction() {}",
+      "c) (() => {})()",
+      "d) Ambas a y c"
+    ],
+    "respuestaCorrecta": "d) Ambas a y c"
+  },
+  {
+    "pregunta": "¿Qué hace el método `Array.prototype.slice()`?",
+    "opciones": [
+      "a) Modifica el array original",
+      "b) Devuelve una copia superficial de una parte del array, sin modificar el original",
+      "c) Remueve los primeros elementos de un array",
+      "d) Inserta nuevos elementos en el array"
+    ],
+    "respuestaCorrecta": "b) Devuelve una copia superficial de una parte del array, sin modificar el original"
+  },
+  {
+    "pregunta": "¿Qué significa `event delegation` en JavaScript?",
+    "opciones": [
+      "a) Asignar un evento a cada elemento individual",
+      "b) Utilizar un solo event listener para gestionar eventos de varios elementos hijos",
+      "c) Pasar eventos de un elemento a otro",
+      "d) Evitar la propagación de eventos en el DOM"
+    ],
+    "respuestaCorrecta": "b) Utilizar un solo event listener para gestionar eventos de varios elementos hijos"
+  },
+  {
+    "pregunta": "¿Qué diferencia hay entre `call()` y `apply()` en JavaScript?",
+    "opciones": [
+      "a) `call()` pasa argumentos como una lista, `apply()` pasa argumentos como un array",
+      "b) `call()` modifica el contexto de una función, `apply()` no",
+      "c) `call()` es sincrónico y `apply()` asincrónico",
+      "d) No hay diferencia entre ellos"
+    ],
+    "respuestaCorrecta": "a) `call()` pasa argumentos como una lista, `apply()` pasa argumentos como un array"
   }
 ]
