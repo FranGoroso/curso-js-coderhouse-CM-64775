@@ -283,10 +283,10 @@ async function cargarPreguntasPorNivel(nivel) {
                 response = await fetch("data/preguntasFaciles.json");
                 break;
             case "intermedio":
-                response = await fetch("/data/preguntasIntermedias.json");
+                response = await fetch("data/preguntasIntermedias.json");
                 break;
             case "dificil":
-                response = await fetch("/data/preguntasDificiles.json");
+                response = await fetch("data/preguntasDificiles.json");
                 break;
             default:
                 throw new Error("Nivel no válido");
