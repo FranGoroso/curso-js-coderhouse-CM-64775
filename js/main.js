@@ -20,15 +20,10 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", async f
     let respuestasCorrectas = validarRespuestas(preguntasFiltradas[nivelSeleccionado]);
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
-
-// // Llamar a la función cuando la página se haya cargado
-// document.addEventListener("DOMContentLoaded", solicitarNombreUsuario);
-
 /*------------------ FIN DE LOS EVENTOS ----------------*/ 
 
 
 /*NOMBRE DE TODAS LAS FUNCIONES PARA BUSCAR EN LA BARRA DE BUSQUEDA: (Solo para correccion) 
-obtenerPreguntasAleatorias (DESHABILITADA MOMENTANEAMENTE)
 iniciarTemporizador
 finalizarCuestionario
 mostrarError
@@ -42,7 +37,6 @@ crearContenedorOpciones
 mostrarPreguntas
 validarRespuestas
 mostrarResultado
-mezclarPreguntas
 solicitarNombreUsuario
 mostrarMensajeBienvenida
 cerrarSesion
@@ -62,7 +56,7 @@ function solicitarNombreUsuario() {
       Swal.fire({
         title: 'Ingresa tu nombre',
         input: 'text',
-        inputPlaceholder: 'Escribe tu nombre',
+        inputPlaceholder: 'Escribi tu nombre',
         showCancelButton: false,
         confirmButtonText: 'Aceptar',
         allowOutsideClick: false,
@@ -124,8 +118,8 @@ function solicitarNombreUsuario() {
   
     if (nombre === "javi" || nombre === "maxi") {
       let mensajePersonalizado = nombre === "javi" 
-        ? "Hola, crack de la vida. Gracias por enseñarme a hacer todo esto. ¡Sos un genio!"
-        : "Hola Maxi! Gracias por aportar siempre y ser alto tutor! ¡Ídolo!";
+        ? "Hola de nuevo Javi!"
+        : "Hola de nuevo Maxi!";
   
       Swal.fire({
         title: '¡Bienvenido de nuevo!',
@@ -158,27 +152,10 @@ function cerrarSesion() {
 
 
 
-
-
-// Función para obtener preguntas aleatorias de un array dado (DESHABILITADA POR EL MOMENTO)
-function obtenerPreguntasAleatorias(preguntas, numeroDePreguntas) {
-    const preguntasAleatorias = [];
-    const preguntasCopia = [...preguntas];
-    
-    while (preguntasAleatorias.length < numeroDePreguntas && preguntasCopia.length > 0) {
-        const indiceAleatorio = Math.floor(Math.random() * preguntasCopia.length);
-        preguntasAleatorias.push(preguntasCopia.splice(indiceAleatorio, 1)[0]);
-    }
-    
-    return preguntasAleatorias;
-}
-
-
-
-// Declarar globalmente el intervalo del temporizador
+// Declarar globalmente el intervalo del temporizador (IMPORTANTE PORQUE SI NO ESTA EN GLOBAL, ME OCASIONA PROBLEMAS)
 let intervaloTemporizador;
 
-//Funcion para inciar temporizador 
+//Funcion para inciar temporizador
 function iniciarTemporizador(duracion, preguntas) {
     let tiempoRestante = duracion;
     let temporizadorElemento = document.getElementById("temporizador");
@@ -193,7 +170,7 @@ function iniciarTemporizador(duracion, preguntas) {
         let minutos = Math.floor(tiempoRestante / 60);
         let segundos = tiempoRestante % 60;
     
-        // Actualizar el texto del temporizador
+        // Actualizar el texto del temporizador (Para que se vea en minutos y segundos)
         temporizadorElemento.textContent = `${minutos}m ${segundos}s`;
         
         if (tiempoRestante <= 0) {
@@ -239,8 +216,6 @@ function mostrarError(error){
 
 
 
-
-
 // Funcion para cargar el resultado anterior para mostrarle al usuario donde habia dejado todo y fijarme si hay sesion activa
 function cargarResultadoPrevio() {
     const sesionActiva = localStorage.getItem('sesionActiva');
@@ -257,11 +232,11 @@ function cargarResultadoPrevio() {
 }
 
 
-// Función que se llama cuando se inicia el cuestionario
+// Función que se llama cuando se inicia el cuestionario (*asincronica porque utilizo el fetch y tengo que esperar respuesta de mi JSON en este caso*)
 async function darComienzo() {
     // Limpiar respuestas guardadas del usuario anterior
     for (let key in localStorage) {
-        if (key.startsWith('respuesta_pregunta_')) {
+        if (key.startsWith('respuesta_pregunta_')) { //startsWith lo aprendi en chat GPT porque no encontraba solucion a este problema
             localStorage.removeItem(key);
         }
     }
@@ -270,7 +245,7 @@ async function darComienzo() {
     localStorage.setItem('sesionActiva', 'true'); // Marca la sesión como activa
 
     let nivelSeleccionado = seleccionarDificultad();
-    let preguntasPorNivel = await filtrarPreguntasPorDificultad(nivelSeleccionado);
+    let preguntasPorNivel = await filtrarPreguntasPorDificultad(nivelSeleccionado);//(*Aca espero la respuesta de mi fetch*)
 
     if (!preguntasPorNivel[nivelSeleccionado] || preguntasPorNivel[nivelSeleccionado].length === 0) {
         // Si no hay preguntas cargadas para el nivel seleccionado, o si tuvo algún fallo al cargar
@@ -279,11 +254,10 @@ async function darComienzo() {
     }
 
     let preguntasFiltradas = preguntasPorNivel[nivelSeleccionado];
-    // preguntasFiltradas = mezclarPreguntas(preguntasFiltradas);  // Esta linea trae problemas a la hora de validar, porque me toma la pregunta bien pero la respuesta correcta la mezcla 
 
     mostrarPreguntas(preguntasFiltradas); 
 
-    //Muestro el boton una vez que se inicia el cuestionario
+    //Muestro el boton una vez que se inicia el cuestionario (Botones ocultos en el html porque quedaba mal y al tocar boton se muestran)
     document.getElementById("btnCerrarSesion").style.display = "block";
     document.getElementById("mostrarResultadoBtn").style.display = "block"; 
 
@@ -323,7 +297,7 @@ async function cargarPreguntasPorNivel(nivel) {
         }
 
         const data = await response.json();
-        return Array.isArray(data) ? data : [data]; //Convierto los objetos de preguntas en un array para poder laburarlos
+        return Array.isArray(data) ? data : [data]; //Convierto los objetos de preguntas en un array para poder laburarlos (Utilizo operadores ternarios para mayor facilidad)
     } catch (error) {
         mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`);
         return [];
@@ -342,7 +316,7 @@ async function filtrarPreguntasPorDificultad(nivelSeleccionado) {
             mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`);
             continue;
         }
-        preguntasFiltradas[nivel] = preguntas; // Se cargan las preguntas tal cual están y no las mezclo pero me gustaria hacerlo en un futuro asi que no la elimino
+        preguntasFiltradas[nivel] = preguntas; 
     }
     
     return preguntasFiltradas;
@@ -423,7 +397,7 @@ function validarRespuestas(preguntas) {
             }
         }
 
-        //CONTROL PARA LA DEPURACION 
+        //CONTROL PARA LA DEPURACION (Lo dejo igualmente porque proximamente quiero hacer que las preguntas se mezclen y eso traia problemas, entonces necesito este codigo de depuracion)
         // console.log(`Pregunta ${index + 1}:`);
         // console.log(`Respuesta seleccionada: ${respuestaSeleccionada}`);
         // console.log(`Respuesta correcta: ${pregunta.respuestaCorrecta}`);
@@ -471,11 +445,12 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
         }
     }).then(() => {
         // Limpiar el contenido del cuestionario y ocultar el botón de resultado
-        document.getElementById("preguntas").innerHTML = "";
-        document.getElementById("mostrarResultadoBtn").style.display = "none";
+        document.getElementById("preguntas").innerHTML = ""; //limpia contenedor preguntas
+        document.getElementById("mostrarResultadoBtn").style.display = "none"; // Oculta boton mostrar resultado
         document.getElementById("temporizador").textContent = ""; // Reinicia el temporizador en pantalla
     });
 
+    // Guarda un objeto con los resultados del cuestionario en el localStorage, convirtiendolo en una cadena de texto
     localStorage.setItem("resultado", JSON.stringify({
         respuestasCorrectas: respuestasCorrectas,
         cantidadTotalPreguntas: cantidadTotalPreguntas,
@@ -486,13 +461,5 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
 }
 
 
-//Funcion para mezclar todas las preguntas y que no salgan siempre igual a la hora de hacer el cuestionario (DESHABILITADAD POR EL MOMENTO)
-function mezclarPreguntas(preguntas) {
-    for (let i = preguntas.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1)); // Número aleatorio entre 0 e i
-        [preguntas[i], preguntas[j]] = [preguntas[j], preguntas[i]]; // Intercambio de posiciones
-    }
-    return preguntas;
-}
 
 
