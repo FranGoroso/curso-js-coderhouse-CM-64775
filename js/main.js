@@ -280,7 +280,7 @@ async function cargarPreguntasPorNivel(nivel) {
 
         switch (nivel) {
             case "facil":
-                response = await fetch("data/preguntasFaciles.json");
+                response = await fetch("data/preguntasFacies.json");
                 break;
             case "intermedio":
                 response = await fetch("data/preguntasIntermedias.json");
@@ -299,7 +299,7 @@ async function cargarPreguntasPorNivel(nivel) {
         const data = await response.json();
         return Array.isArray(data) ? data : [data]; //Convierto los objetos de preguntas en un array para poder laburarlos (Utilizo operadores ternarios para mayor facilidad)
     } catch (error) {
-        mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`);
+        // mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`); (NO FUNICONAAAAAAAAAAAAAAAAA!!!)
         return [];
     }
 }
@@ -313,7 +313,7 @@ async function filtrarPreguntasPorDificultad(nivelSeleccionado) {
     for (const nivel of niveles) {
         let preguntas = await cargarPreguntasPorNivel(nivel);
         if (preguntas.length === 0) {
-            mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`);
+            // mostrarError(`No se pudieron cargar las preguntas para el nivel ${nivel}.`);  (NO FUNICONAAAAAAAAAAAAAAAAA!!!)
             continue;
         }
         preguntasFiltradas[nivel] = preguntas; 
