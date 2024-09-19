@@ -429,37 +429,59 @@ function validarRespuestas(preguntas) {
 
 // Función para mostrar los resultados de las respuestas y avisar si el usuario aprobó o no
 function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
-    let porcentaje = (respuestasCorrectas / cantidadTotalPreguntas) * 100;
-    let estado = porcentaje >= 60 ? "aprobado" : "desaprobado";
-    let mensaje = `Has respondido correctamente ${respuestasCorrectas} de ${cantidadTotalPreguntas} preguntas (${porcentaje.toFixed(2)}%).`;
+    if(validarCasillaMarcada()){
+        let porcentaje = (respuestasCorrectas / cantidadTotalPreguntas) * 100;
+        let estado = porcentaje >= 60 ? "aprobado" : "desaprobado";
+        let mensaje = `Has respondido correctamente ${respuestasCorrectas} de ${cantidadTotalPreguntas} preguntas (${porcentaje.toFixed(2)}%).`;
+    
+        Swal.fire({
+            title: `¡${estado === "aprobado" ? "Felicitaciones" : "Lo siento"}!`,
+            text: `${mensaje} Estás ${estado}.`,
+            icon: estado === "aprobado" ? "success" : "error",
+            confirmButtonText: 'Aceptar',
+            customClass: {
+                popup: estado === "aprobado" ? 'swal-aprobado' : 'swal-desaprobado',
+                confirmButton: 'swal-button',
+                title: 'swal-title',
+            }
+        }).then(() => {
+            // Limpiar el contenido del cuestionario y ocultar el botón de resultado
+            document.getElementById("preguntas").innerHTML = ""; //limpia contenedor preguntas
+            document.getElementById("mostrarResultadoBtn").style.display = "none"; // Oculta boton mostrar resultado
+            document.getElementById("temporizador").textContent = ""; // Reinicia el temporizador en pantalla
+        });
+    
+        // Guarda un objeto con los resultados del cuestionario en el localStorage, convirtiendolo en una cadena de texto
+        localStorage.setItem("resultado", JSON.stringify({
+            respuestasCorrectas: respuestasCorrectas,
+            cantidadTotalPreguntas: cantidadTotalPreguntas,
+            nivel: seleccionarDificultad()
+        }));
+    
+        localStorage.removeItem('sesionActiva'); // Limpiar la bandera de sesión
+    }else{
+        mostrarError("¡No marcaste ninguna casilla! Tenes que marcar al menos una")
+    };
+};
 
-    Swal.fire({
-        title: `¡${estado === "aprobado" ? "Felicitaciones" : "Lo siento"}!`,
-        text: `${mensaje} Estás ${estado}.`,
-        icon: estado === "aprobado" ? "success" : "error",
-        confirmButtonText: 'Aceptar',
-        customClass: {
-            popup: estado === "aprobado" ? 'swal-aprobado' : 'swal-desaprobado',
-            confirmButton: 'swal-button',
-            title: 'swal-title',
-        }
-    }).then(() => {
-        // Limpiar el contenido del cuestionario y ocultar el botón de resultado
-        document.getElementById("preguntas").innerHTML = ""; //limpia contenedor preguntas
-        document.getElementById("mostrarResultadoBtn").style.display = "none"; // Oculta boton mostrar resultado
-        document.getElementById("temporizador").textContent = ""; // Reinicia el temporizador en pantalla
+//Funcion para validar que el usuario marque al menos una casilla del formulario 
+function validarCasillaMarcada() {
+    // Seleccionar todas las casillas del formulario (se asume que ya están presentes en el HTML)
+    const opciones = document.querySelectorAll('input[type="radio"]');
+    
+    // Verificar si alguna casilla está marcada
+    let algunaMarcada = false;
+    opciones.forEach(opcion => {
+      if (opcion.checked) {
+        algunaMarcada = true;
+      }
     });
-
-    // Guarda un objeto con los resultados del cuestionario en el localStorage, convirtiendolo en una cadena de texto
-    localStorage.setItem("resultado", JSON.stringify({
-        respuestasCorrectas: respuestasCorrectas,
-        cantidadTotalPreguntas: cantidadTotalPreguntas,
-        nivel: seleccionarDificultad()
-    }));
-
-    localStorage.removeItem('sesionActiva'); // Limpiar la bandera de sesión
-}
-
-
-
+  
+    if (!algunaMarcada) {
+      return false;
+    }else{
+        return true;
+    }
+  }
+  
 
