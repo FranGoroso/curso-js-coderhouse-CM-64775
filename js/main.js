@@ -40,6 +40,7 @@ mostrarResultado
 solicitarNombreUsuario
 mostrarMensajeBienvenida
 cerrarSesion
+validarCasillaMarcada
 */
 
 
@@ -466,7 +467,7 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
 
 //Funcion para validar que el usuario marque al menos una casilla del formulario 
 function validarCasillaMarcada() {
-    // Seleccionar todas las casillas del formulario (se asume que ya están presentes en el HTML)
+    // Seleccionar todas las casillas del formulario
     const opciones = document.querySelectorAll('input[type="radio"]');
     
     // Verificar si alguna casilla está marcada
@@ -477,11 +478,7 @@ function validarCasillaMarcada() {
       }
     });
   
-    if (!algunaMarcada) {
-      return false;
-    }else{
-        return true;
-    }
+    return algunaMarcada ? true : false;
   }
   
 
