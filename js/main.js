@@ -280,7 +280,7 @@ async function cargarPreguntasPorNivel(nivel) {
 
         switch (nivel) {
             case "facil":
-                response = await fetch("/data/preguntasFaciles.json");
+                response = await fetch("data/preguntasFaciles.json");
                 break;
             case "intermedio":
                 response = await fetch("/data/preguntasIntermedias.json");
