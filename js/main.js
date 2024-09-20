@@ -71,7 +71,7 @@ function solicitarNombreUsuario() {
       }).then((result) => {
         let nombre = result.value.toLowerCase();
   
-        //MENSAJE PERSONALIZADO 
+        //MENSAJE PERSONALIZADO (podria hacer un switch tambien y capaz es mas optimo) 
         if (nombre === "javi" || nombre === "maxi") {
           Swal.fire({
             title: `¿Sos el ${nombre === 'javi' ? 'profe' : 'tutor'} de mi curso?`,
@@ -111,6 +111,7 @@ function solicitarNombreUsuario() {
   
         // Guardar el nombre en localStorage
         localStorage.setItem('nombreUsuario', result.value);
+        document.getElementById("btnCerrarSesion").style.display = "block";
       });
     }
   }
@@ -489,6 +490,10 @@ function validarCasillaMarcada() {
   // Funcion para vlaidar si el nombre es correcto y no tiene caracteres especiales 
   function validarNombre(nombre) {
     
+    if (nombre.trim() === "") {
+      return false; 
+    }
+
     const letrasPermitidas = [..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"]; //Tambien podria hacerlo con una expresion regular para optimizar codigo 
     
     // Recorrer cada letra del nombre y verificar si está en el array de letras permitidas
