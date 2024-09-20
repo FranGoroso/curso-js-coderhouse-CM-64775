@@ -61,3 +61,9 @@ No se aceptan colaboraciones al ser un proyecto propio de CoderHouse (Por el mom
 
 Por ultimo pero no menos importante, agradecerle a Javier Gimenez, profesor del curso de JavaScript de CoderHouse, el cual siempre le puso la   mejor onda y con una predisposicion tremenda hacia todos los alumnos, motivo e inspiro a todos y siempre estuvo dispuesto a resolver cualquier duda. Tambien es un crack explicando, todo se comprendio a la perfeccion siempre! 
 Y tambien muchismas gracias a Maxi, el tutor del curso de CoderHouse de JavaScript, muy atento siempre a todas las preguntas y resolviendo las dudas.
+
+---
+
+## EXTRAS:
+
+El proyecto esta optimizado para funcionar en cualquier dispositivo, osea que es responsive. No lo contrui con el paradigma mobile first porque no era la idea principal, sino que me centre unicamente en la logica pero gracias a chat GPT, pude hacer los estilos mucho mas rapido y de manera efectiva
