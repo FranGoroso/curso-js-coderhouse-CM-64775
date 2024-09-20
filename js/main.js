@@ -281,7 +281,7 @@ async function cargarPreguntasPorNivel(nivel) {
 
         switch (nivel) {
             case "facil":
-                response = await fetch("data/preguntasFacies.json");
+                response = await fetch("data/preguntasFaciles.json");
                 break;
             case "intermedio":
                 response = await fetch("data/preguntasIntermedias.json");
@@ -462,6 +462,9 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
         localStorage.removeItem('sesionActiva'); // Limpiar la bandera de sesión
     }else{
         mostrarError("¡No marcaste ninguna casilla! Tenes que marcar al menos una")
+        document.getElementById("preguntas").innerHTML = ""; //limpia contenedor preguntas
+        document.getElementById("mostrarResultadoBtn").style.display = "none"; // Oculta boton mostrar resultado
+        document.getElementById("temporizador").textContent = ""; // Reinicia el temporizador en pantalla
     };
 };
 
