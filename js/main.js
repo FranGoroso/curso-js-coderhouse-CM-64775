@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", cargarResultadoPrevio);
 //Esto cierra la sesion de usuario al tocar el boton
 document.getElementById("btnCerrarSesion").addEventListener("click", cerrarSesion);
 
+//VARIABLE PARA FUNCION MOSTRAR ERRORES DEL USUARIO (GLOBALMENTE DECLARADA PORQUE SINO SE COMPLICA)
+let preguntasParaFuncionErrores;
+
 // Cuando se toca el botón de mostrar resultados
 document.getElementById("mostrarResultadoBtn").addEventListener("click", async function() {
     // Detener el temporizador
@@ -17,9 +20,11 @@ document.getElementById("mostrarResultadoBtn").addEventListener("click", async f
     let preguntasFiltradas = await filtrarPreguntasPorDificultad(nivelSeleccionado);
     let cantidadTotalPreguntas = preguntasFiltradas[nivelSeleccionado].length;
 
+    preguntasParaFuncionErrores = preguntasFiltradas[nivelSeleccionado]
     let respuestasCorrectas = validarRespuestas(preguntasFiltradas[nivelSeleccionado]);
     mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas);
 });
+
 /*------------------ FIN DE LOS EVENTOS ----------------*/ 
 
 
@@ -439,6 +444,7 @@ function mostrarResultado(respuestasCorrectas, cantidadTotalPreguntas) {
                 title: 'swal-title',
             }
         }).then(() => {
+            mostrarErroresRespuestaUsuario(preguntasParaFuncionErrores);
             // Limpiar el contenido del cuestionario y ocultar el botón de resultado
             document.getElementById("preguntas").innerHTML = ""; //limpia contenedor preguntas
             document.getElementById("mostrarResultadoBtn").style.display = "none"; // Oculta boton mostrar resultado
@@ -496,3 +502,50 @@ function validarCasillaMarcada() {
     return true;
 }
 
+
+//Funcion para mostrar errores de sus respuestas a usuario 
+function mostrarErroresRespuestaUsuario(preguntas) {
+  let errores = [];
+
+  preguntas.forEach((pregunta, index) => {
+      let opciones = document.getElementsByName(`pregunta${index}`);
+      let respuestaSeleccionada = "";
+
+      // Obtener la respuesta seleccionada por el usuario
+      for (let i = 0; i < opciones.length; i++) {
+          if (opciones[i].checked) {
+              respuestaSeleccionada = opciones[i].value;
+              break;
+          }
+      }
+
+
+      const respuestaSeleccionadaNormalizada = respuestaSeleccionada.trim().toLowerCase();
+      const respuestaCorrectaNormalizada = pregunta.respuestaCorrecta.trim().toLowerCase();
+
+      // Si la respuesta seleccionada no es correcta guardO el error
+      if (respuestaSeleccionadaNormalizada !== respuestaCorrectaNormalizada) {
+          errores.push({
+              pregunta: pregunta.pregunta,
+              respuestaSeleccionada: respuestaSeleccionada || "No respondida",
+              respuestaCorrecta: pregunta.respuestaCorrecta
+          });
+      }
+  });
+
+
+  if (errores.length > 0) {
+      let listaErrores = errores.map(error => `
+          <strong>Pregunta:</strong> ${error.pregunta}<br>
+          <strong>Tu respuesta:</strong> ${error.respuestaSeleccionada}<br>
+          <strong>Respuesta correcta:</strong> ${error.respuestaCorrecta}<br><br>
+      `).join('');
+
+      Swal.fire({
+          title: "Errores en el cuestionario",
+          html: listaErrores,
+          icon: "error",
+          confirmButtonText: "Aceptar"
+      });
+  }
+}
