@@ -62,8 +62,8 @@ function solicitarNombreUsuario() {
         confirmButtonText: 'Aceptar',
         allowOutsideClick: false,
         inputValidator: (value) => {
-          if (!value) {
-            return '¡Por favor, ingresa un nombre!';
+          if (!validarNombre(value)) {
+            return '¡Por favor, ingresa un nombre valido!';
           }
         }
       }).then((result) => {
@@ -483,5 +483,19 @@ function validarCasillaMarcada() {
   
     return algunaMarcada ? true : false;
   }
-  
+
+  // Funcion para vlaidar si el nombre es correcto y no tiene caracteres especiales 
+  function validarNombre(nombre) {
+    
+    const letrasPermitidas = [..."abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"]; //Tambien podria hacerlo con una expresion regular para optimizar codigo 
+    
+    // Recorrer cada letra del nombre y verificar si está en el array de letras permitidas
+    for (let letra of nombre) {
+        if (!letrasPermitidas.includes(letra)) {
+            return false; 
+        }
+    }
+    
+    return true;
+}
 
