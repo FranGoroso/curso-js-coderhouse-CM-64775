@@ -41,6 +41,7 @@ solicitarNombreUsuario
 mostrarMensajeBienvenida
 cerrarSesion
 validarCasillaMarcada
+validarNombre
 */
 
 
@@ -52,6 +53,7 @@ function solicitarNombreUsuario() {
     if (nombreGuardado) {
       // Si el nombre ya está guardado, mostrar el mensaje de bienvenida
       mostrarMensajeBienvenida(nombreGuardado);
+      document.getElementById("btnCerrarSesion").style.display = "block";
     } else {
       // Si no hay nombre guardado, pedirlo al usuario
       Swal.fire({
