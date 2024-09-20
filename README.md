@@ -14,7 +14,7 @@ Este proyecto, como dice el titulo, es un cuestionario interactivo en el cual el
 - Temporizador que controla el tiempo de respuesta 
 - Guardado de resultados en LocalStorage 
 - Registro basico y login "basico"
-- Feedback personalizado basado en respuestas (En proceso)
+- Feedback personalizado basado en respuestas 
 
 
 ---
